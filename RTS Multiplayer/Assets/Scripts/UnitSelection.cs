@@ -27,7 +27,7 @@ public class UnitSelection : MonoBehaviour
     {
         DeselectAll();
         unitsSelected.Add(unitToAdd);
-        unitToAdd.transform.GetChild(0).gameObject.SetActive(true);
+        unitToAdd.transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
         unitToAdd.GetComponent<UnitController>().enabled = true;
     }
 
@@ -36,13 +36,13 @@ public class UnitSelection : MonoBehaviour
         if (!unitsSelected.Contains(unitToAdd))
         {
             unitsSelected.Add(unitToAdd);
-            unitToAdd.transform.GetChild(0).gameObject.SetActive(true);
+            unitToAdd.transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
             unitToAdd.GetComponent<UnitController>().enabled = true;
         }
         else
         {
             unitToAdd.GetComponent<UnitController>().enabled = false;
-            unitToAdd.transform.GetChild(0).gameObject.SetActive(false);
+            unitToAdd.transform.GetChild(0).GetChild(0).gameObject.SetActive(false);
             unitsSelected.Remove(unitToAdd);
         }
     }
@@ -52,7 +52,7 @@ public class UnitSelection : MonoBehaviour
         if (!unitsSelected.Contains(unitToAdd))
         {
             unitsSelected.Add(unitToAdd);
-            unitToAdd.transform.GetChild(0).gameObject.SetActive(true);
+            unitToAdd.transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
             unitToAdd.GetComponent<UnitController>().enabled = true;
         }
     }
@@ -62,7 +62,7 @@ public class UnitSelection : MonoBehaviour
         foreach(GameObject unit in unitsSelected)
         {
             unit.GetComponent<UnitController>().enabled = false;
-            unit.transform.GetChild(0).gameObject.SetActive(false);
+            unit.transform.GetChild(0).GetChild(0).gameObject.SetActive(false);
         }
         unitsSelected.Clear();
     }

@@ -494,7 +494,7 @@ MonoBehaviour:
   groundMarker: {fileID: 846894443}
   friendlyMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
 --- !u!114 &1424746333
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -725,7 +725,7 @@ GameObject:
   - component: {fileID: 757765096714093755}
   - component: {fileID: 757765096714093754}
   - component: {fileID: 757765096714093757}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Simple Soldier
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -759,7 +759,7 @@ GameObject:
   - component: {fileID: 3808780758591973736}
   - component: {fileID: 6769598839764995248}
   - component: {fileID: 3360357462520616052}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -863,7 +863,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 130551594086637059}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 869925101eb433a44a262c1c87fd449a, type: 3}
   m_Name: 
@@ -1127,7 +1127,7 @@ GameObject:
   - component: {fileID: 7350610427696641662}
   - component: {fileID: 6447669047825677542}
   - component: {fileID: 7486833582961367012}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Vest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1479,7 +1479,7 @@ GameObject:
   - component: {fileID: 8139158003874995160}
   - component: {fileID: 2506668391199828334}
   - component: {fileID: 5673901313746069774}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Helmet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1497,7 +1497,7 @@ GameObject:
   - component: {fileID: 7378132545822498173}
   - component: {fileID: 4832524824033774822}
   - component: {fileID: 633259820489005106}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Selection Circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
