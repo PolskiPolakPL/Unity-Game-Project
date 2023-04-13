@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class UnitScript : MonoBehaviour
 {
+    /*
     [Header("Unit Statistics")]
     [SerializeField] float hp = 100;
     [SerializeField] float movementSpeed = 5;
@@ -12,6 +13,7 @@ public class UnitScript : MonoBehaviour
     [SerializeField] float infantryDamage = 0;
     [SerializeField] float vechicleDamage = 0;
     [SerializeField] float buildingDamage = 0;
+    */
     // Start is called before the first frame update
     void Start()
     {
