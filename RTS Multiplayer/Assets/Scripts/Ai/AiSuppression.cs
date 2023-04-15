@@ -11,6 +11,8 @@ public class AiSuppression : MonoBehaviour
 
     private float lastSuppressed;
 
+    private Coroutine recoverCourutine;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,9 +24,9 @@ public class AiSuppression : MonoBehaviour
         if (suppression > 0)
         {
             float timeSinceLastSuppression = Time.time - lastSuppressed;
-            if (timeSinceLastSuppression >= recoverDelay)
+            if (recoverCourutine == null && timeSinceLastSuppression >= recoverDelay)
             {
-                suppression -= suppressionDrain;
+                recoverCourutine = StartCoroutine(recover());
             }
         }    
     }
@@ -33,5 +35,15 @@ public class AiSuppression : MonoBehaviour
     {
         suppression = Mathf.Min(suppression + suppressionPoints, maxSuppression);
         lastSuppressed = Time.time;
+        StopCoroutine(recoverCourutine);
+    }
+
+    private IEnumerator recover()
+    {
+        while (suppression > 0)
+        {
+            suppression = Mathf.Max(suppression - suppressionDrain, 0);
+            yield return new WaitForSeconds(1);
+        }   
     }
 }
