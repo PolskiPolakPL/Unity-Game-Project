@@ -29,6 +29,6 @@ public class AiHealth : MonoBehaviour
 
     private void Die()
     {
-
+        Destroy(this);
     }
 }

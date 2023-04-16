@@ -49,9 +49,9 @@ public class AiSensor : MonoBehaviour
 
     private bool isInSight(GameObject gameObject)
     {
-        Vector3 eyeHight = new Vector3(0, 1, 0);
-        Vector3 start = transform.position + eyeHight;
-        Vector3 end = gameObject.transform.position + eyeHight;
+        Vector3 offset = new Vector3(0, eyeHeight, 0);
+        Vector3 start = transform.position + offset;
+        Vector3 end = gameObject.transform.position + offset;
 
         return !Physics.Linecast(start, end, blockLayers);
     }

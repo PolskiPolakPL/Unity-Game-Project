@@ -13,7 +13,8 @@ GameObject:
   - component: {fileID: 6369577460815847264}
   - component: {fileID: 5758858508969169052}
   - component: {fileID: 3551044698525623225}
-  m_Layer: 8
+  - component: {fileID: 2714866696556930447}
+  m_Layer: 7
   m_Name: Agent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -66,10 +67,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scanLayers:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 64
   blockLayers:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 576
   scanFrequency: 2
   viewRange: 20
   eyeHeight: 2
@@ -109,6 +110,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9056734feffdb8e46b5b286819e1cbbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  sensor: {fileID: 0}
+--- !u!114 &2714866696556930447
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4385227495279471491}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2714c91159f7ed45aa468bf6ca0c567, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  health: 1
 --- !u!1001 &1686659425380483713
 PrefabInstance:
   m_ObjectHideFlags: 0
