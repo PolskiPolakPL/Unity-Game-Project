@@ -5,7 +5,7 @@ using UnityEngine;
 public class AiTargetingSystem : MonoBehaviour
 {
     public GameObject target;
-    public AiSensor sensor;
+    private AiSensor sensor;
 
     private void Start()
     {
@@ -16,7 +16,7 @@ public class AiTargetingSystem : MonoBehaviour
     {
         if (TargetsInSight())
         {
-            if (target == null)
+            if (!TargetIsVisible())
             {
                 TargetClosest();
             }
@@ -45,6 +45,16 @@ public class AiTargetingSystem : MonoBehaviour
 
     private bool TargetsInSight()
     {
-        return sensor.visibleObjects != null && sensor.visibleObjects.Count != 0;
+        return sensor.visibleObjects != null && sensor.visibleObjects.Count > 0;
+    }
+
+    private bool TargetIsVisible()
+    {
+        if (target == null)
+        {
+            return false;
+        }
+
+        return sensor.visibleObjects.Contains(target);
     }
 }
