@@ -294,11 +294,9 @@ GameObject:
   m_Component:
   - component: {fileID: 6374164077988344406}
   - component: {fileID: 5201847758187298010}
-  - component: {fileID: 1751912660020340197}
+  - component: {fileID: 1524380473116055435}
   - component: {fileID: 5252566638408096121}
   - component: {fileID: 8853358577420109214}
-  - component: {fileID: -2709681393923105972}
-  - component: {fileID: 7957013495989377836}
   m_Layer: 7
   m_Name: Simple Soldier
   m_TagString: Untagged
@@ -344,7 +342,7 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &1751912660020340197
+--- !u!114 &1524380473116055435
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -391,41 +389,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
---- !u!114 &-2709681393923105972
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8754418370629131466}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6d3c6e019dbf464fba7238b6095965e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scanLayers:
-    serializedVersion: 2
-    m_Bits: 64
-  blockLayers:
-    serializedVersion: 2
-    m_Bits: 513
-  scanFrequency: 5
-  viewRange: 10
-  eyeHeight: 1.8
-  visibleObjects: []
---- !u!114 &7957013495989377836
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8754418370629131466}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9056734feffdb8e46b5b286819e1cbbb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 0}
 --- !u!1 &9092581518720027278
 GameObject:
   m_ObjectHideFlags: 0

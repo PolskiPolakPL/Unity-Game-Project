@@ -16,14 +16,9 @@ public class UnitController : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(1))
-        {
-            ray = cam.ScreenPointToRay(Input.mousePosition);
-            
-        }
-
         if (Input.GetMouseButtonUp(1))
         {
+            ray = cam.ScreenPointToRay(Input.mousePosition);
             if(Physics.Raycast(ray, out hit))
             {
                 agent.SetDestination(hit.point);
