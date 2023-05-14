@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class UnitDragScript : MonoBehaviour
@@ -24,30 +22,27 @@ public class UnitDragScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-        if (Input.GetMouseButtonDown(0))
-        {//klikniêcie myszy
-            startPosition = Input.mousePosition;
-            selectionBox = new Rect();
+        if (InputManager.Instance.currentState != Selection.BUILDING)
+        {
+            if (Input.GetMouseButtonDown(0))
+            {//klikniêcie myszy
+                startPosition = Input.mousePosition;
+                selectionBox = new Rect();
+            }
+            if (Input.GetMouseButton(0))
+            {//trzymanie myszy
+                endPosition = Input.mousePosition;
+                DrawGFX();
+                DrawSelection();
+            }
+            if (Input.GetMouseButtonUp(0))
+            {//upuszczenie myszy
+                SelectUnits();
+                startPosition = Vector2.zero;
+                endPosition = Vector2.zero;
+                DrawGFX();
+            }
         }
-
-        
-        if (Input.GetMouseButton(0))
-        {//trzymanie myszy
-            endPosition = Input.mousePosition;
-            DrawGFX();
-            DrawSelection();
-        }
-
-        
-        if (Input.GetMouseButtonUp(0))
-        {//upuszczenie myszy
-            SelectUnits();
-            startPosition = Vector2.zero;
-            endPosition = Vector2.zero;
-            DrawGFX();
-        }
-
     }
 
     //zmienne dla metody 'DrawGFX'
