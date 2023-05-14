@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class UnitClick : MonoBehaviour
@@ -22,7 +20,7 @@ public class UnitClick : MonoBehaviour
             ray = cam.ScreenPointToRay(Input.mousePosition);
 
                 //sprawdza, czy promieñ trafi³ jednostkê
-            if(Physics.Raycast(ray, out hit, Mathf.Infinity, friendlyMask))
+            if(Physics.Raycast(ray, out hit, Mathf.Infinity, friendlyMask) && hit.transform.gameObject.tag=="Infantry")
             {
                 // Click & L.Shift+Click
                 if (Input.GetKey(KeyCode.LeftShift))
@@ -35,7 +33,7 @@ public class UnitClick : MonoBehaviour
                     //klikniêcie normalne
                     UnitSelection.Instance.ClickSelect(hit.collider.gameObject);
                 }
-
+                InputManager.Instance.currentState = Selection.UNITS;
             }
             else
             {
@@ -43,6 +41,8 @@ public class UnitClick : MonoBehaviour
                 if (!Input.GetKey(KeyCode.LeftShift))
                 {
                     UnitSelection.Instance.DeselectAll();
+                    if(InputManager.Instance.currentState != Selection.BUILDING)
+                    InputManager.Instance.currentState = Selection.NONE;
                 }
             }
         }
