@@ -62,7 +62,7 @@ public class UnitDragScript : MonoBehaviour
     void DrawSelection()
     {
         //kalkulacje dla X
-        if(Input.mousePosition.x < startPosition.x)
+        if (Input.mousePosition.x < startPosition.x)
         {//idzie w lewo
             selectionBox.xMin = Input.mousePosition.x;
             selectionBox.xMax = startPosition.x;
@@ -90,7 +90,7 @@ public class UnitDragScript : MonoBehaviour
     void SelectUnits()
     {
         //szuka wœród wszystkich jednostek
-        foreach(var unit in UnitSelection.Instance.unitsList)
+        foreach (var unit in UnitSelection.Instance.unitsList)
         {
             //czy jednostka jest wewn¹trz box-a
             if (selectionBox.Contains(cam.WorldToScreenPoint(unit.transform.position)))

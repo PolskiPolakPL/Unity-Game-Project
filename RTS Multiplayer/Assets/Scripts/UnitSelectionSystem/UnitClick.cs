@@ -42,7 +42,7 @@ public class UnitClick : MonoBehaviour
                 {
                     UnitSelection.Instance.DeselectAll();
                     if(InputManager.Instance.currentState != Selection.BUILDING)
-                    InputManager.Instance.currentState = Selection.NONE;
+                        InputManager.Instance.currentState = Selection.NONE;
                 }
             }
         }
