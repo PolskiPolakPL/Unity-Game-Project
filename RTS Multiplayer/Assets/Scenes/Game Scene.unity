@@ -658,7 +658,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 11400000, guid: bf531567ed24d614f9e907aa050dcad8, type: 2}
-  popuCap: {fileID: 341022065}
+  populationTMP: {fileID: 341022065}
   moneyTMP: {fileID: 1123170902}
   expTMP: {fileID: 1121252271}
   timer: {fileID: 1811158730}

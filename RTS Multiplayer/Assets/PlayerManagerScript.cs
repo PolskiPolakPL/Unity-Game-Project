@@ -6,7 +6,7 @@ using TMPro;
 public class PlayerManagerScript : MonoBehaviour
 {
     public Player player;
-    public TMP_Text popuCap, moneyTMP, expTMP, timer;
+    public TMP_Text populationTMP, moneyTMP, expTMP, timer;
     int minutes = 0, seconds = 0;
     [SerializeField] Transform units;
     int population;
@@ -16,7 +16,7 @@ public class PlayerManagerScript : MonoBehaviour
     private void Awake()
     {
         population = units.childCount;
-        popuCap.text = $"{population}/{player.popCap}";
+        populationTMP.text = $"{population}/{player.popCap}";
         moneyTMP.text = $"{money}$";
         expTMP.text = $"{exp} exp";
     }
@@ -33,6 +33,7 @@ public class PlayerManagerScript : MonoBehaviour
         if (population != units.childCount)
         {
             population = units.childCount;
+            populationTMP.text = $"{population}/{player.popCap}";
         }
         refreshMoney();
     }
