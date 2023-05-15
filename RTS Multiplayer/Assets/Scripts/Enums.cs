@@ -4,3 +4,9 @@ public enum Selection
     UNITS,
     BUILDING
 }
+public enum UnitType
+{
+    Conscript,
+    MachineGunner,
+    Sniper
+}
