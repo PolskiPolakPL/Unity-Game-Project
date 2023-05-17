@@ -1,10 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class BarrackScript : MonoBehaviour
+public class BuildingScript : MonoBehaviour
 {
     public GameObject itemList;
     Camera cam;
