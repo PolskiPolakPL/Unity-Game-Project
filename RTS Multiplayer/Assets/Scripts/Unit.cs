@@ -1,11 +1,6 @@
 using UnityEngine;
 
-public enum UnitType
-{
-    Conscript,
-    MachineGunner,
-    Sniper
-}
+
 [CreateAssetMenu(fileName = "New Unit", menuName = "Unit")]
 public class Unit : ScriptableObject
 {

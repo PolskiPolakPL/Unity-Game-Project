@@ -1,10 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class BarrackScript : MonoBehaviour
+public class BuildingScript : MonoBehaviour
 {
     public GameObject itemList;
     Camera cam;
@@ -60,7 +58,7 @@ public class BarrackScript : MonoBehaviour
         float unitListHeight = unitListRectTransform.rect.height;
 
         // Set the position of the unit list UI to the upper-left corner of the mouse click position
-        Vector3 unitListPosition = new Vector3(Input.mousePosition.x + (unitListWidth / 2f), Input.mousePosition.y - (unitListHeight / 2f), 0f);
+        Vector3 unitListPosition = new Vector3(Input.mousePosition.x + (unitListWidth/4), Input.mousePosition.y - (unitListHeight/4), 0f);
         
         // Set the position of the unit list UI to the mouse click position
         unitListRectTransform.position = unitListPosition;
