@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: sniper
   m_EditorClassIdentifier: 
   type: 2
-  unitPrefab: {fileID: 0}
+  unitPrefab: {fileID: 7707173381659171052, guid: 33c85c209f4657d40a9b0c95e58d3dae, type: 3}
   health: 100
-  speed: 0
-  attackRange: 0
-  attackSpeed: 0
-  attackDamage: 0
-  accuracity: 0
+  speed: 50
+  attackRange: 100
+  attackSpeed: 1
+  attackDamage: 100
+  accuracity: 90
   range: 0

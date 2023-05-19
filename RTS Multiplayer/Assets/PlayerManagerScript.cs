@@ -5,16 +5,27 @@ using TMPro;
 
 public class PlayerManagerScript : MonoBehaviour
 {
+    private static PlayerManagerScript instance;
+    public static PlayerManagerScript Instance { get { return instance; } }
     public Player player;
     public TMP_Text populationTMP, moneyTMP, expTMP, timer;
     int minutes = 0, seconds = 0;
     [SerializeField] Transform units;
-    int population;
-    int money = 0;
-    int exp = 0;
+    public int population;
+    public int money = 0;
+    public int exp = 0;
 
     private void Awake()
     {
+        //je¿eli istnieje instancja tej klasy, zniszcz tê instancjê
+        if (instance != null && instance != this)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            instance = this;
+        }
         population = units.childCount;
         populationTMP.text = $"{population}/{player.popCap}";
         moneyTMP.text = $"{money}$";

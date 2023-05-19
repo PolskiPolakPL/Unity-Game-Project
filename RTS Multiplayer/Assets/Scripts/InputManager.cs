@@ -19,44 +19,4 @@ using UnityEngine;
                 instance = this;
             }
         }
-
-        // Update is called once per frame
-        void Update()
-        {
-            if (Input.GetMouseButtonDown(0))//LMB
-            {
-                switch (currentState)
-                {
-
-                    //zaznaczanie jednostek
-                    case Selection.UNITS:
-                        {
-
-                        }
-                        break;
-
-                    //rekrutowanie jednostek
-                    case Selection.BUILDING:
-                        {
-
-                        }
-                        break;
-
-                    //cokolwiek innego
-                    case Selection.NONE:
-                        {
-
-                        }
-                        break;
-
-                    //nieprzewidziany
-                    default:
-                        {
-
-                        }
-                        break;
-                }
-            }
-        }
-       
     }
