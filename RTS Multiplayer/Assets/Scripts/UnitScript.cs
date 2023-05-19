@@ -7,6 +7,7 @@ public class UnitScript : MonoBehaviour
     public Unit unit;
     void Start()
     {
+        Instantiate(unit.unitPrefab,transform.position,Quaternion.identity,transform);
         UnitSelection.Instance.unitsList.Add(this.gameObject);
     }
 
