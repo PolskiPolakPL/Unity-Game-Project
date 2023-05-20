@@ -2890,6 +2890,7 @@ MonoBehaviour:
   friendlyMask:
     serializedVersion: 2
     m_Bits: 128
+  itemList: {fileID: 1021302017}
 --- !u!114 &1424746333
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4547,9 +4548,9 @@ GameObject:
   - component: {fileID: 5852172498505526441}
   - component: {fileID: 5852172498505526442}
   - component: {fileID: 5852172498505526443}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Facality
-  m_TagString: Untagged
+  m_TagString: Facility
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
