@@ -16,7 +16,7 @@ public class AiHealth : MonoBehaviour
     public void TakeDamage(float damage)
     {
         health -= damage;
-        if (health < 0)
+        if (health <= 0)
         {
             Die();
         }
@@ -29,6 +29,6 @@ public class AiHealth : MonoBehaviour
 
     private void Die()
     {
-        Destroy(this);
+        Destroy(this.gameObject);
     }
 }

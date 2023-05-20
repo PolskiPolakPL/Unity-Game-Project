@@ -1,10 +1,19 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
+
+[RequireComponent(typeof(NavMeshAgent))]
 public class UnitScript : MonoBehaviour
 {
+    NavMeshAgent agent;
     public Unit unit;
+    private void Awake()
+    {
+        agent = gameObject.GetComponent<NavMeshAgent>();
+        AiSensor aiSensor = agent.GetComponent<AiSensor>();
+        agent.speed = unit.speed;
+        aiSensor.viewRange = unit.attackRange;
+    }
     void Start()
     {
         Instantiate(unit.unitPrefab,transform.position,Quaternion.identity,transform);
