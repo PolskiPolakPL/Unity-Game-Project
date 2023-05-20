@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -22,11 +23,26 @@ public class UnitClick : MonoBehaviour
             Debug.Log("Mouse Click");
             ray = cam.ScreenPointToRay(Input.mousePosition);
 
-            if(Physics.Raycast(ray, out hit, Mathf.Infinity, friendlyMask)) // something with flriendly mask got hit
+            if(Physics.Raycast(ray, out hit, Mathf.Infinity, friendlyMask) || EventSystem.current.IsPointerOverGameObject()) // something with friendly mask got hit
             {
                 Debug.Log("Mouse Hit");
-                string hitTag = hit.transform.gameObject.tag;
-                if (hitTag == "Infantry") // unit was hit
+                string hitTag = "Facility";
+                try
+                {
+                    hitTag = hit.collider.tag;
+                }
+                catch(NullReferenceException) { }
+                if (hitTag == "Facility" || EventSystem.current.IsPointerOverGameObject()) // building or list was hit
+                {
+                    Debug.Log("Facility");
+                    if (InputManager.Instance.currentState != Selection.BUILDING) // and was not selected
+                    {
+                        UnitSelection.Instance.DeselectAll();
+                        InputManager.Instance.currentState = Selection.BUILDING;
+                        hit.transform.gameObject.GetComponent<BuildingScript>().ShowItemList();
+                    }
+                }
+                else if (hitTag == "Infantry") // unit was hit
                 {
                     itemList.SetActive(false);
                     InputManager.Instance.currentState = Selection.UNITS;
@@ -42,20 +58,12 @@ public class UnitClick : MonoBehaviour
                         UnitSelection.Instance.ClickSelect(hit.collider.gameObject);
                     }
                 }
-                else if (hitTag == "Facility" || EventSystem.current.IsPointerOverGameObject()) // building or list was hit
-                {
-                    Debug.Log("Facility");
-                    if (InputManager.Instance.currentState != Selection.BUILDING) // and was not selected
-                    {
-                        UnitSelection.Instance.DeselectAll();
-                        InputManager.Instance.currentState = Selection.BUILDING;
-                        hit.transform.gameObject.GetComponent<BuildingScript>().ShowItemList();
-                    }
-                }
+                
                 
             }
             else // no hit on anything or ground
             {
+                Debug.Log("No hit or ground");
                 InputManager.Instance.currentState = Selection.NONE;
                 itemList.SetActive(false);
                 if (!Input.GetKey(KeyCode.LeftShift)) // and shift is not pressed
