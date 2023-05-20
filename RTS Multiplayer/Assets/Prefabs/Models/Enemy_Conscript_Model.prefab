@@ -342,7 +342,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3989896598866491028}
   m_Layer: 0
-  m_Name: Enemy_Conscript_Model Variant
+  m_Name: Enemy_Conscript_Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
