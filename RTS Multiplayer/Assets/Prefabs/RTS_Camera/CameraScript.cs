@@ -8,17 +8,19 @@ public class CameraScript : MonoBehaviour
 
     public float radialDistance = 20f;
 
-    public float movementTime = 0;
-    public float movementSpeed = 0;
-    public float rotationSpeed = 0;
+    public float movementTime = 5;
+    public float movementSpeed = 0.1f;
+    public float rotationSpeed = 2;
     [Header("Camera Border")]
-    [SerializeField] int left = 5;
-    [SerializeField] int right = 5;
-    [SerializeField] int top = 5;
-    [SerializeField] int bottom = 5;
+    [SerializeField] bool isBorderActive = false;
+    [SerializeField] int left = 1;
+    [SerializeField] int right = 1;
+    [SerializeField] int top = 1;
+    [SerializeField] int bottom = 1;
 
     [Header("Camera Zoom")]
-    [SerializeField] Vector2 MinMaxZoom;
+    [SerializeField] float minZoomDistance = 3;
+    [SerializeField] float maxZoomDistance = 20;
     [SerializeField] float zoomAmount = 5;
 
     Vector3 newPosition;
@@ -32,8 +34,8 @@ public class CameraScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(InputManager.Instance.currentState != Selection.BUILDING)
-        {
+        //if(InputManager.Instance.currentState != Selection.BUILDING)
+        //{
             cam.transform.position = getNewCameraPosition();
             cam.transform.LookAt(transform.position);
 
@@ -72,9 +74,9 @@ public class CameraScript : MonoBehaviour
             // changing distance (zoom)
             if (Input.mouseScrollDelta.y != 0)
             {
-                radialDistance = Mathf.Clamp(radialDistance - Input.mouseScrollDelta.y * zoomAmount, MinMaxZoom.x, MinMaxZoom.y);
+                radialDistance = Mathf.Clamp(radialDistance - Input.mouseScrollDelta.y * zoomAmount, minZoomDistance, maxZoomDistance);
             }
-        }
+        //}
         
 
     }
@@ -91,22 +93,22 @@ public class CameraScript : MonoBehaviour
     {
         Vector3 mousePosition = Input.mousePosition;
 
-        if (mousePosition.y >= Screen.height - top || Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)) // up edge detected
+        if ((mousePosition.y >= Screen.height - top && isBorderActive) || Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)) // up edge detected
         {
             newPosition += (transform.forward * movementSpeed);
         }
 
-        if (mousePosition.y <= bottom || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow)) // down edge detected
+        if ((mousePosition.y <= bottom && isBorderActive) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow)) // down edge detected
         {
             newPosition += (transform.forward * -movementSpeed);
         }
 
-        if (mousePosition.x <= left || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) // left edge detected
+        if ((mousePosition.x <= left && isBorderActive) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) // left edge detected
         {
             newPosition += (transform.right * -movementSpeed);
         }
 
-        if (mousePosition.x >= Screen.width - right || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)) // right edge detected
+        if ((mousePosition.x >= Screen.width - right && isBorderActive) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)) // right edge detected
         {
             newPosition += (transform.right * movementSpeed);
         }

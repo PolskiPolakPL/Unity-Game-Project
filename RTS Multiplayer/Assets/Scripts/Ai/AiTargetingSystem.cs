@@ -1,7 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+
+[RequireComponent(typeof(AiSensor))]
 public class AiTargetingSystem : MonoBehaviour
 {
     public GameObject target;
@@ -24,7 +24,11 @@ public class AiTargetingSystem : MonoBehaviour
         else
         {
             target = null;
-        }    
+        }
+        if(target != null)
+        {
+            transform.LookAt(target.transform);
+        }
     }
 
     private void TargetClosest()

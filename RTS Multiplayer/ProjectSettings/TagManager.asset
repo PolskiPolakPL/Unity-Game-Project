@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Infantry
+  - Facility
   layers:
   - Default
   - TransparentFX
