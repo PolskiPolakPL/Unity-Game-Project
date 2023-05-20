@@ -1,10 +1,12 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class UnitClick : MonoBehaviour
 {
     Camera cam;
     public GameObject groundMarker;
     public LayerMask friendlyMask;
+    public GameObject itemList;
 
     RaycastHit hit;
     Ray ray;
@@ -17,28 +19,46 @@ public class UnitClick : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
+            Debug.Log("Mouse Click");
             ray = cam.ScreenPointToRay(Input.mousePosition);
 
-                //sprawdza, czy promieñ trafi³ jednostkê
-            if(Physics.Raycast(ray, out hit, Mathf.Infinity, friendlyMask) && hit.transform.gameObject.tag=="Infantry")
+            if(Physics.Raycast(ray, out hit, Mathf.Infinity, friendlyMask)) // something with flriendly mask got hit
             {
-                // Click & L.Shift+Click
-                if (Input.GetKey(KeyCode.LeftShift))
+                Debug.Log("Mouse Hit");
+                string hitTag = hit.transform.gameObject.tag;
+                if (hitTag == "Infantry") // unit was hit
                 {
-                    // klikniêcie z Shiftem
-                    UnitSelection.Instance.ShiftClickSelect(hit.collider.gameObject);
+                    itemList.SetActive(false);
+                    InputManager.Instance.currentState = Selection.UNITS;
+                    // Click & L.Shift+Click
+                    if (Input.GetKey(KeyCode.LeftShift))
+                    {
+                        // klikniêcie z Shiftem
+                        UnitSelection.Instance.ShiftClickSelect(hit.collider.gameObject);
+                    }
+                    else
+                    {
+                        //klikniêcie normalne
+                        UnitSelection.Instance.ClickSelect(hit.collider.gameObject);
+                    }
                 }
-                else
+                else if (hitTag == "Facility" || EventSystem.current.IsPointerOverGameObject()) // building or list was hit
                 {
-                    //klikniêcie normalne
-                    UnitSelection.Instance.ClickSelect(hit.collider.gameObject);
+                    Debug.Log("Facility");
+                    if (InputManager.Instance.currentState != Selection.BUILDING) // and was not selected
+                    {
+                        UnitSelection.Instance.DeselectAll();
+                        InputManager.Instance.currentState = Selection.BUILDING;
+                        hit.transform.gameObject.GetComponent<BuildingScript>().ShowItemList();
+                    }
                 }
-                InputManager.Instance.currentState = Selection.UNITS;
+                
             }
-            else
+            else // no hit on anything or ground
             {
-                //klikniêcie gdziekolwiek indziej
-                if (!Input.GetKey(KeyCode.LeftShift))
+                InputManager.Instance.currentState = Selection.NONE;
+                itemList.SetActive(false);
+                if (!Input.GetKey(KeyCode.LeftShift)) // and shift is not pressed
                 {
                     UnitSelection.Instance.DeselectAll();
                     if(InputManager.Instance.currentState != Selection.BUILDING)
@@ -46,6 +66,7 @@ public class UnitClick : MonoBehaviour
                 }
             }
         }
+
         if (Input.GetMouseButtonDown(1))
         {
             ray = cam.ScreenPointToRay(Input.mousePosition);

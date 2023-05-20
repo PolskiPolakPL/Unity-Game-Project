@@ -17,38 +17,34 @@ public class BuildingScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(1))//prawy przycisk myszy
-        {
-            ray = cam.ScreenPointToRay(Input.mousePosition);
-            if(Physics.Raycast(ray,out hit))
-            {
-                if(hit.collider.gameObject == this.gameObject)//trafienie w budynek
-                {
-                    Debug.Log("Budynek!");
-                    ShowitemList();
-                    InputManager.Instance.currentState = Selection.BUILDING;
-                }
-                else if(InputManager.Instance.currentState == Selection.BUILDING)//bycie w stanie BUILDING
-                {
-                    Debug.Log("Hide!");
-                    InputManager.Instance.currentState = Selection.NONE;
-                    HideItemList();
-                }
-            }
-        }
-        else if (Input.GetMouseButtonDown(0))//lewy przycisk myszy
-        {
-            
-            if(InputManager.Instance.currentState == Selection.BUILDING
-                && !EventSystem.current.IsPointerOverGameObject())//w stanie BUILDING i trafienie poza liste
-            {
-                Debug.Log("Hide!");
-                InputManager.Instance.currentState = Selection.NONE;
-                HideItemList();
-            }
-        }
+        //if (Input.GetMouseButtonDown(0))// lewy przycisk myszy
+        //{
+        //    ray = cam.ScreenPointToRay(Input.mousePosition);
+        //    if (Physics.Raycast(ray, out hit))
+        //    {
+        //        if (hit.collider.gameObject == this.gameObject)
+        //        {
+        //            if (InputManager.Instance.currentState != Selection.BUILDING)
+        //            {
+        //                UnitSelection.Instance.DeselectAll();
+        //                InputManager.Instance.currentState = Selection.BUILDING;
+        //                ShowItemList();
+        //            }
+        //        }
+        //        else
+        //        {
+        //            if (InputManager.Instance.currentState == Selection.BUILDING
+        //                && !EventSystem.current.IsPointerOverGameObject())
+        //            {
+        //                HideItemList();
+        //                //InputManager.Instance.currentState = Selection.NONE;
+        //            }
+        //        }
+        //    }
+        //}
     }
-    void ShowitemList()
+
+    public void ShowItemList()
     {
         // Get the RectTransform component of the unit list UI
         RectTransform unitListRectTransform = itemList.GetComponent<RectTransform>();
@@ -66,7 +62,7 @@ public class BuildingScript : MonoBehaviour
         // Enable the unit list UI
         itemList.SetActive(true);
     }
-    void HideItemList()
+    public void HideItemList()
     {
         itemList.SetActive(false);
     }
