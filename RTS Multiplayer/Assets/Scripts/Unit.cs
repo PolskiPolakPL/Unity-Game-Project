@@ -5,12 +5,10 @@ using UnityEngine;
 public class Unit : ScriptableObject
 {
     [SerializeField] UnitType type;
-    public GameObject unitPrefab;
-    public float health;
+    public int health;
     public float speed;
     public float attackRange;
-    public float attackSpeed;
-    public float attackDamage;
+    public int attackSpeed;
+    public int attackDamage;
     public float accuracity;
-    public float range;
 }

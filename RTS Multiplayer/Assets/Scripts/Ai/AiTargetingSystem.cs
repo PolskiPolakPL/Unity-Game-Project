@@ -1,12 +1,10 @@
 using UnityEngine;
 
-
 [RequireComponent(typeof(AiSensor))]
 public class AiTargetingSystem : MonoBehaviour
 {
     public GameObject target;
     private AiSensor sensor;
-
     private void Start()
     {
         sensor = GetComponent<AiSensor>();

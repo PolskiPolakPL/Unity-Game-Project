@@ -1,6 +1,5 @@
 using UnityEngine;
 
-
 public class CameraScript : MonoBehaviour
 {   
     Camera cam;
