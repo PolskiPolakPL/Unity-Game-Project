@@ -15,8 +15,8 @@ MonoBehaviour:
   type: 2
   unitPrefab: {fileID: 7707173381659171052, guid: 33c85c209f4657d40a9b0c95e58d3dae, type: 3}
   health: 100
-  speed: 50
-  attackRange: 100
+  speed: 4
+  attackRange: 15
   attackSpeed: 1
   attackDamage: 100
   accuracity: 90

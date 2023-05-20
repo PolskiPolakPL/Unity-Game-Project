@@ -6,10 +6,10 @@ public class AiSensor : MonoBehaviour
     [SerializeField] LayerMask scanLayers;
     [SerializeField] LayerMask blockLayers;
     [SerializeField] float scanFrequency;
-    [SerializeField] float viewRange;
+    public float viewRange;
     [SerializeField] float eyeHeight;
 
-    [SerializeField] public List<GameObject> visibleObjects = new List<GameObject>();
+    public List<GameObject> visibleObjects = new List<GameObject>();
 
     private float scanInterval;
     private float scanTimer;
