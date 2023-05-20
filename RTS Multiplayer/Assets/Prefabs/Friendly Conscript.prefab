@@ -72,7 +72,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unit: {fileID: 11400000, guid: a312301906b17074a81c05660afb7135, type: 2}
-  model: {fileID: 5555492968887222497, guid: fbcf191417f36314dbbe557ae17a8484, type: 3}
+  model: {fileID: 7949695174473533231, guid: a4675aaa3a6a3bf4796c6ea4e4e8bc86, type: 3}
 --- !u!114 &5252566638408096121
 MonoBehaviour:
   m_ObjectHideFlags: 0

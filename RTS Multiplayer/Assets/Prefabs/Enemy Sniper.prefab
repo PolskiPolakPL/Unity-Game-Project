@@ -94,7 +94,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unit: {fileID: 11400000, guid: ce15f402f3ff3ba46a6e8c7548125821, type: 2}
-  model: {fileID: 6598163517556696519, guid: 4ec0a625ef98cba48ae1d66568d9b5cf, type: 3}
+  model: {fileID: 4322392056753921919, guid: 59830cfa59bdd6b488e56e7cb2fbb0d4, type: 3}
 --- !u!114 &1318155885313805013
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -34,7 +34,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &827298252380763984
 CapsuleCollider:
@@ -94,7 +94,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unit: {fileID: 11400000, guid: a312301906b17074a81c05660afb7135, type: 2}
-  model: {fileID: 8132725797700002225, guid: 6985a1843353cc146ae9cfec144cc224, type: 3}
+  model: {fileID: 8260991170604500636, guid: 8d48968514ed9be43bfc6d6c3fda027d, type: 3}
 --- !u!114 &8637619191160680913
 MonoBehaviour:
   m_ObjectHideFlags: 0
