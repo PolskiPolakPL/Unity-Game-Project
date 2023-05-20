@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1920
     height: 989
   m_ShowMode: 4
-  m_Title: Project
+  m_Title: Game
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -119,11 +119,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-<<<<<<< Updated upstream
-  controlID: 95
-=======
-  controlID: 101
->>>>>>> Stashed changes
+  controlID: 100
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -148,7 +144,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 49
+  controlID: 43
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -173,7 +169,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 50}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 40
+  controlID: 44
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -271,15 +267,10 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1499
     y: 0
-<<<<<<< Updated upstream
     width: 421
     height: 939
-=======
-    width: 351
-    height: 947
->>>>>>> Stashed changes
-  m_MinSize: {x: 276, y: 71}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 17}
   m_Panes:
   - {fileID: 17}
@@ -423,11 +414,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-<<<<<<< Updated upstream
-      m_ExpandedIDs: b8f0feff36f3feff8af5feff7af7feff769500008e95000008960000129600004696000056960000b8960000
-=======
-      m_ExpandedIDs: 62dfffff72dfffffacf7ffff7a6100004a6200005a620000a2620000bc620000
->>>>>>> Stashed changes
+      m_ExpandedIDs: de6bffff2cfbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -762,7 +749,7 @@ MonoBehaviour:
       floating: 0
       collapsed: 0
       displayed: 1
-      snapOffset: {x: -207, y: -242}
+      snapOffset: {x: -216, y: -300}
       snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 3
       id: AINavigationOverlay
@@ -781,15 +768,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-<<<<<<< Updated upstream
-    m_Target: {x: 1.3111622, y: -2.8161812, z: -4.5557175}
+    m_Target: {x: -10.445846, y: -11.447984, z: -22.658127}
     speed: 2
-    m_Value: {x: 1.3111622, y: -2.8161812, z: -4.5557175}
-=======
-    m_Target: {x: -2.5417218, y: 10.701342, z: -30.804209}
-    speed: 2
-    m_Value: {x: -2.5417218, y: 10.701342, z: -30.804209}
->>>>>>> Stashed changes
+    m_Value: {x: -10.445846, y: -11.447984, z: -22.658127}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -835,23 +816,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-<<<<<<< Updated upstream
-    m_Target: {x: -0.26523256, y: 0.046815686, z: -0.012945132, w: -0.9628271}
+    m_Target: {x: -0.18264599, y: 0.79003376, z: -0.2815713, w: -0.51280034}
     speed: 2
-    m_Value: {x: -0.26526657, y: 0.046821687, z: -0.012946792, w: -0.9629505}
+    m_Value: {x: -0.18266796, y: 0.79012877, z: -0.28160518, w: -0.512862}
   m_Size:
-    m_Target: 22.17152
+    m_Target: 15.873869
     speed: 2
-    m_Value: 22.17152
-=======
-    m_Target: {x: -0.30989954, y: -0.0961931, z: 0.031486746, w: -0.94522923}
-    speed: 2
-    m_Value: {x: -0.30993974, y: -0.096205585, z: 0.031490833, w: -0.9453519}
-  m_Size:
-    m_Target: 6.412361
-    speed: 2
-    m_Value: 6.412361
->>>>>>> Stashed changes
+    m_Value: 15.873869
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -923,30 +894,23 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/ScriptableObjects/units
+    - Assets/Materials/Class_Materials
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/ScriptableObjects/units
+  - Assets/Materials/Class_Materials
   m_LastFoldersGridSize: -1
   m_LastProjectPath: D:\ANS\6_sem\unity\Unity-Game-Project\RTS Multiplayer
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-<<<<<<< Updated upstream
-    scrollPos: {x: 0, y: 68}
-    m_SelectedIDs: 44060000
-    m_LastClickedID: 1604
-    m_ExpandedIDs: 00000000080600004406000054060000cc0600002007000024070000a0070000d807000000ca9a3b
-=======
-    scrollPos: {x: 0, y: 47}
-    m_SelectedIDs: 02250000
-    m_LastClickedID: 9474
-    m_ExpandedIDs: 00000000e6240000a2630000b863000000ca9a3bffffff7f
->>>>>>> Stashed changes
+    scrollPos: {x: 0, y: 79}
+    m_SelectedIDs: 56660000
+    m_LastClickedID: 26198
+    m_ExpandedIDs: 000000007a6200007c6200007e62000080620000826200008462000086620000886200009662000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -974,11 +938,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-<<<<<<< Updated upstream
-    m_ExpandedIDs: 
-=======
-    m_ExpandedIDs: 00000000a2630000
->>>>>>> Stashed changes
+    m_ExpandedIDs: 000000007a6200007c6200007e6200008062000082620000846200008662000088620000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1054,7 +1014,7 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 0
+    x: 1920
     y: 787
     width: 1498
     height: 204
