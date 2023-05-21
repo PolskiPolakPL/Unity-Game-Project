@@ -6,7 +6,7 @@ public class PlayerManagerScript : MonoBehaviour
 {
     private static PlayerManagerScript instance;
     public static PlayerManagerScript Instance { get { return instance; } }
-    public Player player;
+    public Player playerStats;
     public TMP_Text populationTMP, moneyTMP, expTMP, timer;
     int minutes = 0, seconds = 0;
     [SerializeField] Transform units;
@@ -24,11 +24,11 @@ public class PlayerManagerScript : MonoBehaviour
         {
             instance = this;
         }
-        player.budget = 0;
-        player.experience = 0;
+        playerStats.budget = 0;
+        playerStats.experience = 0;
         population = units.childCount;
-        populationTMP.text = $"{population}/{player.popCap}";
-        moneyTMP.text = $"{player.budget}$";
+        populationTMP.text = $"{population}/{playerStats.popCap}";
+        moneyTMP.text = $"{playerStats.budget}$";
         expTMP.text = $"{exp} exp";
     }
     // Start is called before the first frame update
@@ -44,7 +44,7 @@ public class PlayerManagerScript : MonoBehaviour
         if (population != units.childCount)
         {
             population = units.childCount;
-            populationTMP.text = $"{population}/{player.popCap}";
+            populationTMP.text = $"{population}/{playerStats.popCap}";
         }
         refreshMoney();
     }
@@ -85,13 +85,13 @@ public class PlayerManagerScript : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(player.incomeTime);
-            player.budget += player.income;
+            yield return new WaitForSeconds(playerStats.incomeTime);
+            playerStats.budget += playerStats.income;
         }
         
     }
     void refreshMoney()
     {
-        moneyTMP.text = $"{player.budget}$";
+        moneyTMP.text = $"{playerStats.budget}$";
     }
 }
