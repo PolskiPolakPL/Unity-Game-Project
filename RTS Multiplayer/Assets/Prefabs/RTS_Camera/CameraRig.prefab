@@ -142,7 +142,11 @@ MonoBehaviour:
   movementTime: 0
   movementSpeed: 0
   rotationSpeed: 0
-  border: 5
-  newPosition: {x: 0, y: 0, z: 0}
+  isBorderActive: 1
+  left: 1
+  right: 1
+  top: 1
+  bottom: 1
+  minZoomDistance: 3
+  maxZoomDistance: 20
   zoomAmount: 5
-  newZoom: {x: 0, y: 0, z: 0}
