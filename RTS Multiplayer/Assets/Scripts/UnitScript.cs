@@ -9,7 +9,7 @@ public class UnitScript : MonoBehaviour
     public GameObject model;
 
     NavMeshAgent agent;
-    int currentHealth;
+    public int currentHealth;
     private void Awake()
     {
         agent = gameObject.GetComponent<NavMeshAgent>();

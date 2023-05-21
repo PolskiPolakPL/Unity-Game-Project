@@ -20,12 +20,10 @@ public class UnitClick : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            Debug.Log("Mouse Click");
             ray = cam.ScreenPointToRay(Input.mousePosition);
 
             if(Physics.Raycast(ray, out hit, Mathf.Infinity, friendlyMask) || EventSystem.current.IsPointerOverGameObject()) // something with friendly mask got hit
             {
-                Debug.Log("Mouse Hit");
                 string hitTag = "Facility";
                 try
                 {
@@ -34,7 +32,6 @@ public class UnitClick : MonoBehaviour
                 catch(NullReferenceException) { }
                 if (hitTag == "Facility" || EventSystem.current.IsPointerOverGameObject()) // building or list was hit
                 {
-                    Debug.Log("Facility");
                     if (InputManager.Instance.currentState != Selection.BUILDING) // and was not selected
                     {
                         UnitSelection.Instance.DeselectAll();
