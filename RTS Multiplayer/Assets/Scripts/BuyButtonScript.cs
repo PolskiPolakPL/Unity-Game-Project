@@ -10,7 +10,7 @@ public class BuyButtonScript : MonoBehaviour
     {
         nameTMP = transform.GetChild(0).gameObject.GetComponent<TMP_Text>();
         priceTMP = transform.GetChild(1).gameObject.GetComponent<TMP_Text>();
-        nameTMP.text = unit.name;
+        nameTMP.text =" " + unit.name;
         priceTMP.text = unit.cost.ToString() + "$";
     }
 }

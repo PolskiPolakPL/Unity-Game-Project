@@ -33,8 +33,8 @@ public class CameraScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if(InputManager.Instance.currentState != Selection.BUILDING)
-        //{
+        if(InputManager.Instance.currentState != Selection.BUILDING)
+        {
             cam.transform.position = getNewCameraPosition();
             cam.transform.LookAt(transform.position);
 
@@ -75,7 +75,7 @@ public class CameraScript : MonoBehaviour
             {
                 radialDistance = Mathf.Clamp(radialDistance - Input.mouseScrollDelta.y * zoomAmount, minZoomDistance, maxZoomDistance);
             }
-        //}
+        }
         
 
     }
