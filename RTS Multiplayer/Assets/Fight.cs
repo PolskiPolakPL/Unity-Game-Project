@@ -18,10 +18,6 @@ public class Fight : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        range = stats.attackRange;
-        reloadTime = 60f / stats.attackSpeed;
-        accuracy = stats.accuracity;
-        damage = stats.attackDamage;
     }
 
     // Update is called once per frame
@@ -54,6 +50,6 @@ public class Fight : MonoBehaviour
 
     private void CalculateHit(GameObject target)
     {
-        float distance
+        
     }
 }
