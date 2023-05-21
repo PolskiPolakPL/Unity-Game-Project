@@ -20,13 +20,15 @@ public class UnitScript : MonoBehaviour
     void Start()
     {
         Instantiate(model,transform.position,Quaternion.identity,transform);
-        UnitSelection.Instance.unitsList.Add(this.gameObject);
+        if(gameObject.layer==7)
+            UnitSelection.Instance.unitsList.Add(this.gameObject);
         currentHealth = unit.health;
     }
 
     private void OnDestroy()
     {
-        UnitSelection.Instance.unitsList.Remove(this.gameObject);
+        if (UnitSelection.Instance.unitsList.Contains(this.gameObject))
+            UnitSelection.Instance.unitsList.Remove(this.gameObject);
         if (UnitSelection.Instance.unitsSelected.Contains(this.gameObject))
             UnitSelection.Instance.unitsSelected.Remove(this.gameObject);
     }
