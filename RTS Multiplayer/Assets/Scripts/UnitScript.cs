@@ -20,7 +20,8 @@ public class UnitScript : MonoBehaviour
     void Start()
     {
         Instantiate(model,transform.position,Quaternion.identity,transform);
-        UnitSelection.Instance.unitsList.Add(this.gameObject);
+        if(gameObject.layer==7)
+            UnitSelection.Instance.unitsList.Add(this.gameObject);
         currentHealth = unit.health;
     }
 
