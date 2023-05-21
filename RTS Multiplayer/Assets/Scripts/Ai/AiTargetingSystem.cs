@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 [RequireComponent(typeof(AiSensor))]
@@ -35,12 +36,20 @@ public class AiTargetingSystem : MonoBehaviour
         float minDistance = Mathf.Infinity;
         for (int i = 0; i < sensor.visibleObjects.Count; i++)
         {
-            float distance = Vector3.Magnitude(transform.position - sensor.visibleObjects[i].transform.position);
-            if (distance < minDistance)
+            try
             {
-                closestId = i;
-                minDistance = distance;
-            }
+                if (sensor.visibleObjects[i] == null || sensor.visibleObjects[i].GetComponent<UnitScript>().isDead)
+                {
+                    continue;
+                }
+                float distance = Vector3.Magnitude(transform.position - sensor.visibleObjects[i].transform.position);
+                if (distance < minDistance)
+                {
+                    closestId = i;
+                    minDistance = distance;
+                }
+            } catch(NullReferenceException) { }
+            
         }
         target = sensor.visibleObjects[closestId];
     }

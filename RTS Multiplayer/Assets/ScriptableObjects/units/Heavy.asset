@@ -16,7 +16,14 @@ MonoBehaviour:
   health: 150
   cost: 10
   speed: 2
-  attackRange: 10
-  attackSpeed: 100
-  attackDamage: 20
-  accuracy: 0
+  bodySize: 0.9
+  shortRange: 8
+  midRange: 14
+  longRange: 20
+  shortAccuracy: 0.95
+  midAccuracy: 0.6
+  longAccuracy: 0.2
+  magSize: 30
+  cycleTime: 0.1
+  reloadTime: 3
+  damage: 8

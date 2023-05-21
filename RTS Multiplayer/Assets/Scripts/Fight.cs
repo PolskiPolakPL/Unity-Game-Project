@@ -6,14 +6,16 @@ public class Fight : MonoBehaviour
 {
     public Unit stats;
 
-    private bool bulletInChamber = true;
+    [SerializeField] private bool bulletInChamber = true;
 
-    private int bullets;
+    [SerializeField] private int bullets;
 
     public GameObject target;
 
-    private Coroutine cycleCoroutine = null;
     private Coroutine reloadCoroutine = null;
+
+    private bool reloading = false;
+    private bool cycling = false;
 
     // Start is called before the first frame update
     void Start()
@@ -24,13 +26,21 @@ public class Fight : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (target == null)
+        target = gameObject.GetComponent<AiTargetingSystem>().target;
+
+        if (bullets <= 0 && !reloading)
         {
-            target = gameObject.GetComponent<AiTargetingSystem>().target;
-            return;
+            reloading = true;
+            StartCoroutine(ReloadMag());
         }
 
-        if (bulletInChamber)
+        if (bullets > 0 && !bulletInChamber && !cycling)
+        {
+            cycling = true;
+            StartCoroutine(CycleBolt());
+        }
+
+        if (target != null && bulletInChamber && !target.GetComponent<UnitScript>().isDead)
         {
             Shot();
         }
@@ -38,62 +48,49 @@ public class Fight : MonoBehaviour
 
     IEnumerator ReloadMag()
     {
-        Debug.Log("Reload");
         yield return new WaitForSeconds(stats.reloadTime);
         bullets = stats.magSize;
-        reloadCoroutine = null;
+        reloading = false;
     }
 
     IEnumerator CycleBolt()
     {
-        Debug.Log("Cycle");
-        while (bullets == 0)
-        {
-            if (reloadCoroutine == null)
-            {
-                reloadCoroutine = StartCoroutine(ReloadMag());
-            }
-        }
         yield return new WaitForSeconds(stats.cycleTime);
         bullets--;
         bulletInChamber = true;
-        cycleCoroutine = null;
+        cycling = false;
     }
 
     private void Shot()
     {
-        Debug.Log("SHOT");
         float hitTry = Random.Range(0f, 1f);
-        
-        if (hitTry < CalculateHitChance())
+        float chance = CalculateHitChance();
+
+        if (hitTry < chance)
         {
             target.GetComponent<UnitScript>().TakeDamage(stats.damage);
+            target = null;
         }
-        bulletInChamber = false;
-
-        if (cycleCoroutine == null)
-        {
-            cycleCoroutine = StartCoroutine(CycleBolt());
-        }     
+        bulletInChamber = false;    
     }
 
     private float CalculateHitChance()
     {
         float distance = Vector3.Magnitude(target.transform.position - transform.position);
         float targetSize = target.GetComponent<Fight>().stats.bodySize;
-        float accuracy = 0;
+        float accuracy = 0f;
 
-        if (distance < stats.shortAccuracy)
+        if (distance < stats.shortRange)
         {
             accuracy = stats.shortAccuracy;
         }
-        if (distance < stats.midAccuracy)
+        if (distance < stats.midRange)
         {
-            accuracy = stats.shortAccuracy;
+            accuracy = stats.midAccuracy;
         }
-        if (distance < stats.longAccuracy)
+        if (distance < stats.longRange)
         {
-            accuracy = stats.shortAccuracy;
+            accuracy = stats.longAccuracy;
         }
 
         return accuracy * targetSize;

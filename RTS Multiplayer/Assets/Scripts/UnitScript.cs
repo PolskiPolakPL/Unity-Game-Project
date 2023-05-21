@@ -7,9 +7,10 @@ public class UnitScript : MonoBehaviour
 {
     public Unit unit;
     public GameObject model;
+    public bool isDead = false;
 
     NavMeshAgent agent;
-    int currentHealth;
+    [SerializeField] int currentHealth;
     private void Awake()
     {
         agent = gameObject.GetComponent<NavMeshAgent>();
@@ -45,6 +46,7 @@ public class UnitScript : MonoBehaviour
     }
     void KillYourself()
     {
-        Destroy(gameObject);
+        isDead = true;
+        Destroy(gameObject, 1);
     }
 }
