@@ -8,6 +8,7 @@ public class Unit : ScriptableObject
     public int health;
     public int cost;
     public float speed;
+    public float bodySize;
 
     public float shortRange;
     public float midRange;
@@ -17,6 +18,9 @@ public class Unit : ScriptableObject
     public float midAccuracy;
     public float longAccuracy;
 
-    public int rateOfFire;
-    public int realoadTime;
+    public int magSize;
+    public float cycleTime;
+    public float reloadTime;
+
+    public int damage; 
 }

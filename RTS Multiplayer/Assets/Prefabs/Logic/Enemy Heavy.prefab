@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4216730282746084468}
   - component: {fileID: 539980155059109810}
   - component: {fileID: 2026640201444129747}
+  - component: {fileID: 1336351800636617386}
   m_Layer: 6
   m_Name: Enemy Heavy
   m_TagString: Untagged
@@ -129,4 +130,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9056734feffdb8e46b5b286819e1cbbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  target: {fileID: 0}
+--- !u!114 &1336351800636617386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8542795991681865033}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afefc7f9e674eb5408d1ff87954bd1d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stats: {fileID: 11400000, guid: 291576e2ab412944ba96823e535a6229, type: 2}
   target: {fileID: 0}
