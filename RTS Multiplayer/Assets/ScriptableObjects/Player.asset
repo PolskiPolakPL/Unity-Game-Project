@@ -9,11 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 2fc2eb93c8fb8f745bda970cc9a28973, type: 3}
   m_Name: Player
-  m_EditorClassIdentifier: Assembly-CSharp::Player
-  budget: 0
-  income: 0
-  incomeTime: 0
+  m_EditorClassIdentifier: 
+  income: 5
+  incomeTime: 3
   experience: 0
-  popCap: 0
+  popCap: 12

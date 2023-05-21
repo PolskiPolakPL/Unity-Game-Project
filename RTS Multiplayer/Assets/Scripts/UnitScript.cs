@@ -7,16 +7,15 @@ public class UnitScript : MonoBehaviour
 {
     public Unit unit;
     public GameObject model;
-    public bool isDead = false;
 
     NavMeshAgent agent;
-    [SerializeField] int currentHealth;
+    public int currentHealth;
     private void Awake()
     {
         agent = gameObject.GetComponent<NavMeshAgent>();
         AiSensor aiSensor = agent.GetComponent<AiSensor>();
         agent.speed = unit.speed;
-        aiSensor.viewRange = unit.longRange;
+        aiSensor.viewRange = unit.attackRange;
     }
     void Start()
     {
@@ -35,7 +34,7 @@ public class UnitScript : MonoBehaviour
     }
     public void TakeDamage(int damage)
     {
-        if (currentHealth > 0)
+        if (currentHealth > damage)
         {
             currentHealth -= damage;
         }
@@ -46,7 +45,6 @@ public class UnitScript : MonoBehaviour
     }
     void KillYourself()
     {
-        isDead = true;
-        Destroy(gameObject, 1);
+        Destroy(gameObject);
     }
 }

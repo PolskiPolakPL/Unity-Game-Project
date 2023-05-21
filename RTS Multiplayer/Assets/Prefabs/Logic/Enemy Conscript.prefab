@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 1488880514726060583}
   - component: {fileID: 8637619191160680913}
   - component: {fileID: 3761388763197200258}
-  - component: {fileID: -6316939146893860925}
   m_Layer: 6
   m_Name: Enemy Conscript
   m_TagString: Untagged
@@ -130,18 +129,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9056734feffdb8e46b5b286819e1cbbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
---- !u!114 &-6316939146893860925
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6021335917539859180}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: afefc7f9e674eb5408d1ff87954bd1d4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stats: {fileID: 11400000, guid: a312301906b17074a81c05660afb7135, type: 2}
   target: {fileID: 0}

@@ -60,6 +60,7 @@ public class UnitClick : MonoBehaviour
             }
             else // no hit on anything or ground
             {
+                Debug.Log("No hit or ground");
                 InputManager.Instance.currentState = Selection.NONE;
                 itemList.SetActive(false);
                 if (!Input.GetKey(KeyCode.LeftShift)) // and shift is not pressed

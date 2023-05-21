@@ -38,18 +38,14 @@ public class AiTargetingSystem : MonoBehaviour
         {
             try
             {
-                if (sensor.visibleObjects[i] == null || sensor.visibleObjects[i].GetComponent<UnitScript>().isDead)
-                {
-                    continue;
-                }
                 float distance = Vector3.Magnitude(transform.position - sensor.visibleObjects[i].transform.position);
                 if (distance < minDistance)
                 {
                     closestId = i;
                     minDistance = distance;
                 }
-            } catch(NullReferenceException) { }
-            
+            }
+            catch(MissingReferenceException) { }
         }
         target = sensor.visibleObjects[closestId];
     }
