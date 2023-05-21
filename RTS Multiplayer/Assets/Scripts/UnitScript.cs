@@ -15,7 +15,7 @@ public class UnitScript : MonoBehaviour
         agent = gameObject.GetComponent<NavMeshAgent>();
         AiSensor aiSensor = agent.GetComponent<AiSensor>();
         agent.speed = unit.speed;
-        aiSensor.viewRange = unit.attackRange;
+        aiSensor.viewRange = unit.longRange;
     }
     void Start()
     {

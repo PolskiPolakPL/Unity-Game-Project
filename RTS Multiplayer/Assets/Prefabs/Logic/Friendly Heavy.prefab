@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 1084276797071151540}
   - component: {fileID: 6421378497734090864}
   - component: {fileID: 8656356958234302403}
+  - component: {fileID: -5711029817494325282}
   m_Layer: 7
   m_Name: Friendly Heavy
   m_TagString: Infantry
@@ -142,4 +143,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9056734feffdb8e46b5b286819e1cbbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  target: {fileID: 0}
+--- !u!114 &-5711029817494325282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7816710721940558339}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afefc7f9e674eb5408d1ff87954bd1d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stats: {fileID: 11400000, guid: 291576e2ab412944ba96823e535a6229, type: 2}
   target: {fileID: 0}
