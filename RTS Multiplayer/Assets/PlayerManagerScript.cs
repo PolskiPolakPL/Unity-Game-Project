@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
@@ -12,7 +11,6 @@ public class PlayerManagerScript : MonoBehaviour
     int minutes = 0, seconds = 0;
     [SerializeField] Transform units;
     public int population;
-    public int money = 0;
     public int exp = 0;
 
     private void Awake()
@@ -26,9 +24,11 @@ public class PlayerManagerScript : MonoBehaviour
         {
             instance = this;
         }
+        player.budget = 0;
+        player.experience = 0;
         population = units.childCount;
         populationTMP.text = $"{population}/{player.popCap}";
-        moneyTMP.text = $"{money}$";
+        moneyTMP.text = $"{player.budget}$";
         expTMP.text = $"{exp} exp";
     }
     // Start is called before the first frame update
@@ -86,12 +86,12 @@ public class PlayerManagerScript : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(player.incomeTime);
-            money += player.income;
+            player.budget += player.income;
         }
         
     }
     void refreshMoney()
     {
-        moneyTMP.text = $"{money}$";
+        moneyTMP.text = $"{player.budget}$";
     }
 }

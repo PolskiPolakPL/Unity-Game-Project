@@ -27,7 +27,8 @@ public class UnitScript : MonoBehaviour
 
     private void OnDestroy()
     {
-        UnitSelection.Instance.unitsList.Remove(this.gameObject);
+        if (UnitSelection.Instance.unitsList.Contains(this.gameObject))
+            UnitSelection.Instance.unitsList.Remove(this.gameObject);
         if (UnitSelection.Instance.unitsSelected.Contains(this.gameObject))
             UnitSelection.Instance.unitsSelected.Remove(this.gameObject);
     }
