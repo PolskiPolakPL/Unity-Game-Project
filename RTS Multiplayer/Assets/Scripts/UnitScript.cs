@@ -34,7 +34,7 @@ public class UnitScript : MonoBehaviour
     }
     public void TakeDamage(int damage)
     {
-        if (currentHealth > 0)
+        if (currentHealth > damage)
         {
             currentHealth -= damage;
         }

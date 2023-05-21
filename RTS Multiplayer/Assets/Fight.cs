@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Fight : MonoBehaviour
@@ -41,8 +39,15 @@ public class Fight : MonoBehaviour
     }
     void GalaFighter()
     {
-        Debug.Log($"Shot {enemy.name} for {unit.attackDamage}! \t Now he has {enemyUnitScript.currentHealth}HP!");
-        enemyUnitScript.TakeDamage(unit.attackDamage);
+        if(unit.accuracy > Random.Range(0f, 1f))
+        {
+            enemyUnitScript.TakeDamage(unit.attackDamage);
+            Debug.Log($"Shot {enemy.name} for {unit.attackDamage}! \t Now he has {enemyUnitScript.currentHealth}HP!");
+        }
+        else
+        {
+            Debug.Log("Miss!");
+        }
         timer = 0;
     }
 }
