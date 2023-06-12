@@ -5,11 +5,12 @@ using UnityEngine;
 public class Unit : ScriptableObject
 {
     [SerializeField] UnitType type;
+    public AudioClip fireSound;
     public int health;
     public int cost;
     public float speed;
     public float attackRange;
-    public int attackSpeed;
+    public float attackSpeed;
     public int attackDamage;
     public float accuracy;
 }

@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: sniper
   m_EditorClassIdentifier: 
   type: 2
-  health: 100
-  cost: 20
-  speed: 4
-  attackRange: 15
-  attackSpeed: 1
-  attackDamage: 100
+  fireSound: {fileID: 8300000, guid: 6ce002f41370a994382545f0c2339c2e, type: 3}
+  health: 60
+  cost: 90
+  speed: 2.5
+  attackRange: 20
+  attackSpeed: 3
+  attackDamage: 110
   accuracy: 99

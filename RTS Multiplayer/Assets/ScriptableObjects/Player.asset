@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fc2eb93c8fb8f745bda970cc9a28973, type: 3}
   m_Name: Player
   m_EditorClassIdentifier: 
-  income: 5
-  incomeTime: 3
+  budget: 949
+  income: 2
+  incomeTime: 1
   experience: 0
-  popCap: 12
+  popCap: 10

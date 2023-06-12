@@ -10,3 +10,9 @@ public enum UnitType
     MachineGunner,
     Sniper
 }
+public enum InfluenceState
+{
+    FRIENDLY,
+    NEUTRAL,
+    HOSTILE
+}

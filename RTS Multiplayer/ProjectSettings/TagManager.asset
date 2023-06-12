@@ -6,11 +6,12 @@ TagManager:
   tags:
   - Infantry
   - Facility
+  - Objective
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Ground
   - Water
   - UI
   - Hostile

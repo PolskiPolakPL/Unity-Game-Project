@@ -8,6 +8,7 @@ public class UnitSelection : MonoBehaviour
 
     private static UnitSelection instance;
     public static UnitSelection Instance { get { return instance; } }
+    [SerializeField] int childIndex = 0;
 
     private void Awake()
     {
@@ -26,8 +27,7 @@ public class UnitSelection : MonoBehaviour
     {
         DeselectAll();
         unitsSelected.Add(unitToAdd);
-        unitToAdd.transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
-        unitToAdd.GetComponent<UnitController>().enabled = true;
+        unitToAdd.transform.GetChild(childIndex).GetChild(0).gameObject.SetActive(true);
     }
 
     public void ShiftClickSelect(GameObject unitToAdd)
@@ -35,13 +35,11 @@ public class UnitSelection : MonoBehaviour
         if (!unitsSelected.Contains(unitToAdd))
         {
             unitsSelected.Add(unitToAdd);
-            unitToAdd.transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
-            unitToAdd.GetComponent<UnitController>().enabled = true;
+            unitToAdd.transform.GetChild(childIndex).GetChild(0).gameObject.SetActive(true);
         }
         else
         {
-            unitToAdd.GetComponent<UnitController>().enabled = false;
-            unitToAdd.transform.GetChild(0).GetChild(0).gameObject.SetActive(false);
+            unitToAdd.transform.GetChild(childIndex).GetChild(0).gameObject.SetActive(false);
             unitsSelected.Remove(unitToAdd);
         }
     }
@@ -51,8 +49,7 @@ public class UnitSelection : MonoBehaviour
         if (!unitsSelected.Contains(unitToAdd))
         {
             unitsSelected.Add(unitToAdd);
-            unitToAdd.transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
-            unitToAdd.GetComponent<UnitController>().enabled = true;
+            unitToAdd.transform.GetChild(childIndex).GetChild(0).gameObject.SetActive(true);
         }
     }
 
@@ -60,8 +57,7 @@ public class UnitSelection : MonoBehaviour
     {
         foreach(GameObject unit in unitsSelected)
         {
-            unit.GetComponent<UnitController>().enabled = false;
-            unit.transform.GetChild(0).GetChild(0).gameObject.SetActive(false);
+            unit.transform.GetChild(childIndex).GetChild(0).gameObject.SetActive(false);
         }
         unitsSelected.Clear();
     }

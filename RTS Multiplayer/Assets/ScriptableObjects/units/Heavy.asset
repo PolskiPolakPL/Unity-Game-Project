@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: Heavy
   m_EditorClassIdentifier: 
   type: 1
-  health: 150
-  cost: 10
+  fireSound: {fileID: 8300000, guid: bc98597adc56cd749a662b3f333bf506, type: 3}
+  health: 210
+  cost: 120
   speed: 2
-  attackRange: 10
-  attackSpeed: 100
-  attackDamage: 20
-  accuracy: 0
+  attackRange: 13
+  attackSpeed: 0.1
+  attackDamage: 15
+  accuracy: 75

@@ -5,7 +5,7 @@ public class Player : ScriptableObject
 {
     public int budget;
     public int income;
-    public int incomeTime;
+    public float incomeTime;
     public int experience;
     public int popCap;
 }

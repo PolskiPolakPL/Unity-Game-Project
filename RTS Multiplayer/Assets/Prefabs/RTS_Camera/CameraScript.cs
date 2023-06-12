@@ -7,9 +7,11 @@ public class CameraScript : MonoBehaviour
 
     public float radialDistance = 20f;
 
-    public float movementTime = 5;
+    [Header("Camera Movement")]
     public float movementSpeed = 0.1f;
+    public float movementMultiplayer = 1;
     public float rotationSpeed = 2;
+    public float movementTime = 5;
     [Header("Camera Border")]
     [SerializeField] bool isBorderActive = false;
     [SerializeField] int left = 1;
@@ -23,10 +25,12 @@ public class CameraScript : MonoBehaviour
     [SerializeField] float zoomAmount = 5;
 
     Vector3 newPosition;
+    Vector3 startPosition;
     // Start is called before the first frame update
     void Start()
     {
         newPosition = transform.position;
+        startPosition = transform.position;
         cam = Camera.main;
     }
 
@@ -39,10 +43,10 @@ public class CameraScript : MonoBehaviour
             cam.transform.LookAt(transform.position);
 
             // moving camera
-            if (!Input.GetMouseButton(2)) // check if not rotating camera with MMB
-            {
+            //if (!Input.GetMouseButton(2)) // check if not rotating camera with MMB (optional)
+            //{
                 MoveCamera();
-            }
+            //}
 
             // rotating camera
             if (Input.GetMouseButtonDown(2))
@@ -75,6 +79,12 @@ public class CameraScript : MonoBehaviour
             {
                 radialDistance = Mathf.Clamp(radialDistance - Input.mouseScrollDelta.y * zoomAmount, minZoomDistance, maxZoomDistance);
             }
+
+            //porót do pozycji startowej
+            if (Input.GetKeyDown(KeyCode.C))
+            {
+                newPosition = startPosition;
+            }
         }
         
 
@@ -91,25 +101,34 @@ public class CameraScript : MonoBehaviour
     private void MoveCamera()
     {
         Vector3 mousePosition = Input.mousePosition;
+        float multiplayedSpeed;
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            multiplayedSpeed = movementSpeed * movementMultiplayer;
+        }
+        else
+        {
+            multiplayedSpeed = movementSpeed;
+        }
 
         if ((mousePosition.y >= Screen.height - top && isBorderActive) || Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)) // up edge detected
         {
-            newPosition += (transform.forward * movementSpeed);
+            newPosition += (transform.forward * multiplayedSpeed);
         }
 
         if ((mousePosition.y <= bottom && isBorderActive) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow)) // down edge detected
         {
-            newPosition += (transform.forward * -movementSpeed);
+            newPosition += (transform.forward * -multiplayedSpeed);
         }
 
         if ((mousePosition.x <= left && isBorderActive) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) // left edge detected
         {
-            newPosition += (transform.right * -movementSpeed);
+            newPosition += (transform.right * -multiplayedSpeed);
         }
 
         if ((mousePosition.x >= Screen.width - right && isBorderActive) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)) // right edge detected
         {
-            newPosition += (transform.right * movementSpeed);
+            newPosition += (transform.right * multiplayedSpeed);
         }
 
         transform.position = Vector3.Lerp(transform.position, newPosition, Time.deltaTime * movementTime);
