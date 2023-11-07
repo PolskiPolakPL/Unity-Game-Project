@@ -23,14 +23,14 @@ public class PlayerManagerScript : MonoBehaviour
         {
             instance = this;
         }
-        player.budget = 0;
-        population = units.childCount;
-        populationTMP.text = $"{population}/{player.popCap}";
-        moneyTMP.text = $"{player.budget}$";
     }
     // Start is called before the first frame update
     void Start()
     {
+        player.budget = 0;
+        population = units.childCount;
+        populationTMP.text = $"{population}/{player.popCap}";
+        moneyTMP.text = $"{player.budget}$";
         StartCoroutine(TimerCoroutine());
         StartCoroutine(passiveIncomeCoroutine());
     }
@@ -44,6 +44,10 @@ public class PlayerManagerScript : MonoBehaviour
             populationTMP.text = $"{population}/{player.popCap}";
         }
         refreshMoney();
+    }
+    void refreshMoney()
+    {
+        moneyTMP.text = $"{player.budget}$";
     }
     IEnumerator TimerCoroutine()
     {
@@ -86,9 +90,5 @@ public class PlayerManagerScript : MonoBehaviour
             player.budget += player.income;
         }
         
-    }
-    void refreshMoney()
-    {
-        moneyTMP.text = $"{player.budget}$";
     }
 }
