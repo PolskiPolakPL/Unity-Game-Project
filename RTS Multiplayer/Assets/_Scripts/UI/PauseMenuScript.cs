@@ -4,8 +4,6 @@ using UnityEngine.Events;
 
 public class PauseMenuScript : MonoBehaviour
 {
-    [SerializeField] GameObject pauseMenu, unitsItemList;
-    [SerializeField] BuildingScript buildingScript;
     [SerializeField] UnityEvent OnGamePaused;
     [SerializeField] UnityEvent OnGameResumed;
     // Update is called once per frame

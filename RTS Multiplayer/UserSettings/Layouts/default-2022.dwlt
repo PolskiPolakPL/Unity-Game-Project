@@ -43,8 +43,8 @@ MonoBehaviour:
     y: 0
     width: 272
     height: 641
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 201, y: 221}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 13}
   m_Panes:
   - {fileID: 13}
@@ -276,7 +276,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 55
+  controlID: 90
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -414,21 +414,21 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 0e92feff1e93feff2afbffff6e6000009c600000d6600000106100003461000078610000866100003462000040620000666200007a62000002630000366300006a63000078630000846300008a630000a26300001664000058c9010066c9010094c90100cec9010008ca01002ccb01005ecb0100
+      m_ExpandedIDs: 12fbffff74600000a26000003262000070620000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: Input Manager
-        m_OriginalName: Input Manager
+        m_Name: 
+        m_OriginalName: 
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: 25008
+        m_UserData: 0
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 0
+        m_OriginalEventType: 11
         m_IsRenamingFilename: 0
         m_ClientGUIView: {fileID: 0}
       m_SearchString: 
@@ -911,7 +911,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 79}
     m_SelectedIDs: ce7d0000
     m_LastClickedID: 32206
-    m_ExpandedIDs: 00000000ce7d0000d07d0000d27d0000d47d0000d67d0000d87d0000da7d0000167e0000187e0000547e000000ca9a3b
+    m_ExpandedIDs: 00000000d07d0000d27d0000d47d0000d67d0000d87d0000da7d0000dc7d0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -939,7 +939,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000ce7d0000d07d0000d27d0000d47d0000d67d0000d87d0000da7d0000
+    m_ExpandedIDs: 00000000d07d0000d27d0000d47d0000d67d0000d87d0000da7d0000dc7d0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
