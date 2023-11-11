@@ -37,57 +37,52 @@ public class CameraScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(InputManager.Instance.currentState != Selection.BUILDING)
+        cam.transform.position = getNewCameraPosition();
+        cam.transform.LookAt(transform.position);
+
+        // moving camera
+        //if (!Input.GetMouseButton(2)) // check if not rotating camera with MMB (optional)
+        //{
+            MoveCamera();
+        //}
+
+        // rotating camera
+        if (Input.GetMouseButtonDown(2))
         {
-            cam.transform.position = getNewCameraPosition();
-            cam.transform.LookAt(transform.position);
+            Cursor.lockState = CursorLockMode.Locked;
+        }
 
-            // moving camera
-            //if (!Input.GetMouseButton(2)) // check if not rotating camera with MMB (optional)
-            //{
-                MoveCamera();
-            //}
-
-            // rotating camera
-            if (Input.GetMouseButtonDown(2))
+        if (Input.GetMouseButton(2)) // MMB
+        {
+            // horizontally
+            if (Input.GetAxis("Mouse X") != 0)
             {
-                Cursor.lockState = CursorLockMode.Locked;
+                transform.Rotate(new Vector3(0, Input.GetAxis("Mouse X") * rotationSpeed, 0));
             }
 
-            if (Input.GetMouseButton(2)) // MMB
+            // vertically
+            if (Input.GetAxis("Mouse Y") != 0)
             {
-                // horizontally
-                if (Input.GetAxis("Mouse X") != 0)
-                {
-                    transform.Rotate(new Vector3(0, Input.GetAxis("Mouse X") * rotationSpeed, 0));
-                }
-
-                // vertically
-                if (Input.GetAxis("Mouse Y") != 0)
-                {
-                    polarAngle = Mathf.Clamp(polarAngle + Input.GetAxis("Mouse Y") * rotationSpeed, 0, 89.9f);
-                }
-            }
-
-            if (Input.GetMouseButtonUp(2))
-            {
-                Cursor.lockState = CursorLockMode.Confined;
-            }
-
-            // changing distance (zoom)
-            if (Input.mouseScrollDelta.y != 0)
-            {
-                radialDistance = Mathf.Clamp(radialDistance - Input.mouseScrollDelta.y * zoomAmount, minZoomDistance, maxZoomDistance);
-            }
-
-            //porót do pozycji startowej
-            if (Input.GetKeyDown(KeyCode.C))
-            {
-                newPosition = startPosition;
+                polarAngle = Mathf.Clamp(polarAngle + Input.GetAxis("Mouse Y") * rotationSpeed, 0, 89.9f);
             }
         }
-        
 
+        if (Input.GetMouseButtonUp(2))
+        {
+            Cursor.lockState = CursorLockMode.Confined;
+        }
+
+        // changing distance (zoom)
+        if (Input.mouseScrollDelta.y != 0)
+        {
+            radialDistance = Mathf.Clamp(radialDistance - Input.mouseScrollDelta.y * zoomAmount, minZoomDistance, maxZoomDistance);
+        }
+
+        //porót do pozycji startowej
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            newPosition = startPosition;
+        }
     }
 
     private Vector3 getNewCameraPosition()
@@ -132,6 +127,5 @@ public class CameraScript : MonoBehaviour
         }
 
         transform.position = Vector3.Lerp(transform.position, newPosition, Time.deltaTime * movementTime);
-
     }
 }

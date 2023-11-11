@@ -1,10 +1,13 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Events;
 
 public class PauseMenuScript : MonoBehaviour
 {
     [SerializeField] GameObject pauseMenu, unitsItemList;
     [SerializeField] BuildingScript buildingScript;
+    [SerializeField] UnityEvent OnGamePaused;
+    [SerializeField] UnityEvent OnGameResumed;
     // Update is called once per frame
     void Update()
     {
@@ -13,10 +16,7 @@ public class PauseMenuScript : MonoBehaviour
             if(Time.timeScale != 0)
             {
                 Time.timeScale = 0;
-                unitsItemList.SetActive(false);
-                buildingScript.enabled = false;
-                pauseMenu.SetActive(true);
-                InputManager.Instance.currentState = Selection.BUILDING;//Goofy ahhh plasterek z jednoro¿cem na inny plasterek z jednoro¿cem na ranie postrza³owej
+                OnGamePaused?.Invoke();
             }
             else
             {
@@ -26,9 +26,7 @@ public class PauseMenuScript : MonoBehaviour
     }
     public void ResumeGame()
     {
-        buildingScript.enabled = true;
-        pauseMenu.SetActive(false);
-        InputManager.Instance.currentState = Selection.NONE;
+        OnGameResumed?.Invoke();
         Time.timeScale = 1;
     }
     public void ExitToMainMenu()
