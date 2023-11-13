@@ -1,28 +1,27 @@
 using UnityEngine;
 
 public class CameraScript : MonoBehaviour
-{   
-    Camera cam;
-    public float polarAngle = 45f;
-
-    public float radialDistance = 20f;
+{
+    [SerializeField] Camera cam;
+    [SerializeField] float polarAngle = 45f;
+    [SerializeField] float radialDistance = 20f;
 
     [Header("Camera Movement")]
-    public float movementSpeed = 0.1f;
-    public float movementMultiplayer = 1;
-    public float rotationSpeed = 2;
-    public float movementTime = 5;
+    [SerializeField] float movementSpeed = 0.1f;
+    [SerializeField] float movementMultiplayer = 1;
+    [SerializeField] float rotationSpeed = 2;
+    [SerializeField] float movementTime = 5;
+    [SerializeField] bool freezeOnRotation = false;
+    [Header("Camera Zoom")]
+    [SerializeField] float minZoomDistance = 3;
+    [SerializeField] float maxZoomDistance = 20;
+    [SerializeField] float zoomAmount = 5;
     [Header("Camera Border")]
     [SerializeField] bool isBorderActive = false;
     [SerializeField] int left = 1;
     [SerializeField] int right = 1;
     [SerializeField] int top = 1;
     [SerializeField] int bottom = 1;
-
-    [Header("Camera Zoom")]
-    [SerializeField] float minZoomDistance = 3;
-    [SerializeField] float maxZoomDistance = 20;
-    [SerializeField] float zoomAmount = 5;
 
     Vector3 newPosition;
     Vector3 startPosition;
@@ -31,7 +30,8 @@ public class CameraScript : MonoBehaviour
     {
         newPosition = transform.position;
         startPosition = transform.position;
-        cam = Camera.main;
+        if(cam==null)
+            cam = Camera.main;
     }
 
     // Update is called once per frame
@@ -41,10 +41,10 @@ public class CameraScript : MonoBehaviour
         cam.transform.LookAt(transform.position);
 
         // moving camera
-        //if (!Input.GetMouseButton(2)) // check if not rotating camera with MMB (optional)
-        //{
+        if (!(Input.GetMouseButton(2) && freezeOnRotation)) // check if not rotating camera with MMB (optional)
+        {
             MoveCamera();
-        //}
+        }
 
         // rotating camera
         if (Input.GetMouseButtonDown(2))
