@@ -2175,6 +2175,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2831418927087984323, guid: ecc37587214fe1f45ba25467662342a7, type: 3}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 414756593}
+    - target: {fileID: 2831418927087984323, guid: ecc37587214fe1f45ba25467662342a7, type: 3}
       propertyPath: top
       value: 1
       objectReference: {fileID: 0}
@@ -6066,9 +6070,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ba4a7adda4299d47aa6c235e9d5a8a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pauseMenu: {fileID: 0}
-  unitsItemList: {fileID: 0}
-  buildingScript: {fileID: 0}
   OnGamePaused:
     m_PersistentCalls:
       m_Calls:
