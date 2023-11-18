@@ -1469,7 +1469,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 301739964}
-  - component: {fileID: 301739965}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: GameController
@@ -1492,24 +1491,6 @@ Transform:
   m_Father: {fileID: 1392795653}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &301739965
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 301739963}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f7617d6a65517164ab772c4c52232ee8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 11400000, guid: bf531567ed24d614f9e907aa050dcad8, type: 2}
-  populationTMP: {fileID: 341022065}
-  moneyTMP: {fileID: 1123170902}
-  timer: {fileID: 1811158730}
-  units: {fileID: 2019711300}
-  population: 0
 --- !u!1 &316932716
 GameObject:
   m_ObjectHideFlags: 0
@@ -8192,6 +8173,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1768259543}
+  - component: {fileID: 1768259545}
   - component: {fileID: 1768259544}
   m_Layer: 0
   m_Name: UI Manager
@@ -8329,6 +8311,24 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1768259545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1768259542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7617d6a65517164ab772c4c52232ee8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 11400000, guid: bf531567ed24d614f9e907aa050dcad8, type: 2}
+  populationTMP: {fileID: 341022065}
+  moneyTMP: {fileID: 1123170902}
+  timer: {fileID: 1811158730}
+  units: {fileID: 2019711300}
+  population: 0
 --- !u!1 &1799201871
 GameObject:
   m_ObjectHideFlags: 0
