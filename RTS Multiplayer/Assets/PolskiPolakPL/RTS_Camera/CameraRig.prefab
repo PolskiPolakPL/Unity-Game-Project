@@ -123,7 +123,7 @@ Transform:
   m_Children:
   - {fileID: 2831418926991665620}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2831418927087984323
 MonoBehaviour:
@@ -137,16 +137,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f8b40968df830a44a361e63bd0da8fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cam: {fileID: 2831418926991665579}
   polarAngle: 45
   radialDistance: 20
-  movementTime: 0
-  movementSpeed: 0
-  rotationSpeed: 0
+  movementSpeed: 0.1
+  movementMultiplayer: 2
+  rotationSpeed: 2
+  movementTime: 5
+  freezeOnRotation: 0
+  minZoomDistance: 3
+  maxZoomDistance: 20
+  zoomAmount: 5
   isBorderActive: 1
   left: 1
   right: 1
   top: 1
   bottom: 1
-  minZoomDistance: 3
-  maxZoomDistance: 20
-  zoomAmount: 5
