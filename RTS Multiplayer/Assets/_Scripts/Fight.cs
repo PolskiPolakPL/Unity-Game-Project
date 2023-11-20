@@ -9,16 +9,13 @@ public class Fight : MonoBehaviour
     float timer = 0, accuracy;
     AudioSource audioSource;
 
-    private void Awake()
+    private void Start()
     {
         unitScript = gameObject.GetComponent<UnitScript>();
         unit = unitScript.unit;
         aiTargeting = gameObject.GetComponent<AiTargetingSystem>();
         audioSource = gameObject.GetComponent<AudioSource>();
         accuracy = unit.accuracy;
-    }
-    private void Start()
-    {
         timer = Random.Range(unit.attackSpeed, unit.attackSpeed - 0.1f);
     }
     private void Update()
