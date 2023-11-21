@@ -11,7 +11,7 @@ public class UnitScript : MonoBehaviour
     [SerializeField] FloatingBarScript healthBar;
 
     NavMeshAgent agent;
-    private void Awake()
+    void Start()
     {
         agent = gameObject.GetComponent<NavMeshAgent>();
         AiSensor aiSensor = agent.GetComponent<AiSensor>();
@@ -19,9 +19,6 @@ public class UnitScript : MonoBehaviour
         aiSensor.viewRange = unit.attackRange;
         healthBar = GetComponentInChildren<FloatingBarScript>();
         agent.stoppingDistance = 0.5f;
-    }
-    void Start()
-    {
         //GameObject
         Instantiate(model,transform.position,transform.rotation,transform);
         //Health

@@ -2,10 +2,10 @@ using System.Collections;
 using UnityEngine;
 using TMPro;
 
-public class PlayerManagerScript : MonoBehaviour
+public class PlayerUiManagerScript : MonoBehaviour
 {
-    private static PlayerManagerScript instance;
-    public static PlayerManagerScript Instance { get { return instance; } }
+    private static PlayerUiManagerScript instance;
+    public static PlayerUiManagerScript Instance { get { return instance; } }
     public Player player;
     public TMP_Text populationTMP, moneyTMP, timer;
     int minutes = 0, seconds = 0;
