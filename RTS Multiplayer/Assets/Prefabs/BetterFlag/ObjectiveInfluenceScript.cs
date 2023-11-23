@@ -40,7 +40,7 @@ public class ObjectiveInfluenceScript : MonoBehaviour
     {
         influence = Mathf.Clamp(influence - drain, -maxInfuence, maxInfuence);
         newDrain = 0;
-        foreach(Transform enemy in enemyUnits)
+        foreach(Transform enemy in enemyUnits)//change theese loops into OnColisionEnter & OnCollisionExit events?
         {
             if(Vector3.Distance(transform.position, enemy.position) <= influenceRadious)
             {

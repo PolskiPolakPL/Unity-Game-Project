@@ -1,20 +1,33 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class PlayerUiManagerScript : MonoBehaviour
 {
+    //singleton declarations
     private static PlayerUiManagerScript instance;
     public static PlayerUiManagerScript Instance { get { return instance; } }
-    public Player player;
-    public TMP_Text populationTMP, moneyTMP, timer;
-    int minutes = 0, seconds = 0;
-    [SerializeField] Transform units;
-    public int population;
+
+    //UI declarations
+    [SerializeField] PlayerScript playerScript;
+    [SerializeField] PlayerAIScript enemyScript;
+    [Header("Timer")]
+    [SerializeField] TMP_Text timer;
+    private int _minutes = 0, _seconds = 0;
+    [Header("Health")]
+    [SerializeField] TMP_Text playerHpTMP;
+    [SerializeField] Slider playerHpBar;
+    [SerializeField] TMP_Text enemyHpTMP;
+    [SerializeField] Slider enemyHpBar;
+    [Header("Resources")]
+    [SerializeField] float incomeTime = 1;
+    [SerializeField] TMP_Text moneyTMP;
+    [SerializeField] TMP_Text populationTMP;
 
     private void Awake()
     {
-        //je¿eli istnieje instancja tej klasy, zniszcz tê instancjê
+        //je¿eli istnieje inna instancja tej klasy, zniszcz tê instancjê
         if (instance != null && instance != this)
         {
             Destroy(this.gameObject);
@@ -27,10 +40,10 @@ public class PlayerUiManagerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        player.budget = 0;
-        population = units.childCount;
-        populationTMP.text = $"{population}/{player.popCap}";
-        moneyTMP.text = $"{player.budget}$";
+        UpdatePopulation();
+        UpdateMoney();
+        UpdateEnemyPlayerHP();
+        UpdatePlayerHP();
         StartCoroutine(TimerCoroutine());
         StartCoroutine(passiveIncomeCoroutine());
     }
@@ -38,16 +51,31 @@ public class PlayerUiManagerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (population != units.childCount)
-        {
-            population = units.childCount;
-            populationTMP.text = $"{population}/{player.popCap}";
-        }
-        refreshMoney();
+        UpdatePopulation();
+        UpdateMoney();
     }
-    void refreshMoney()
+    public void UpdatePlayerHP()
     {
-        moneyTMP.text = $"{player.budget}$";
+        playerHpBar.value = (float)playerScript.hp / (float)playerScript.maxHp;
+        playerHpTMP.text = playerScript.hp.ToString();
+    }
+    public void UpdateEnemyPlayerHP()
+    {
+        enemyHpBar.value = (float)enemyScript.hp / (float)enemyScript.maxHp;
+        Debug.Log($"Enemy HP: {(float)enemyScript.hp}/{(float)enemyScript.maxHp}hp");
+        enemyHpTMP.text = enemyScript.hp.ToString();
+    }
+    public void UpdateMoney()
+    {
+        moneyTMP.text = $"{playerScript.money}$";
+    }
+    public void UpdateAmmo()
+    {
+
+    }
+    public void UpdatePopulation()
+    {
+        populationTMP.text = $"{playerScript.population}/{playerScript.popCap}";
     }
     IEnumerator TimerCoroutine()
     {
@@ -55,27 +83,27 @@ public class PlayerUiManagerScript : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(1);
-            seconds++;
-            if(seconds > 59)
+            _seconds++;
+            if(_seconds > 59)
             {
-                minutes++;
-                seconds = 0;
+                _minutes++;
+                _seconds = 0;
             }
-            if (seconds < 10)
+            if (_seconds < 10)
             {
-                sec="0"+seconds.ToString();
-            }
-            else
-            {
-                sec = seconds.ToString();
-            }
-            if(minutes < 10)
-            {
-                min="0"+minutes.ToString();
+                sec="0"+_seconds.ToString();
             }
             else
             {
-                min=minutes.ToString();
+                sec = _seconds.ToString();
+            }
+            if(_minutes < 10)
+            {
+                min="0"+_minutes.ToString();
+            }
+            else
+            {
+                min=_minutes.ToString();
             }
             timer.text = min + ":" + sec;
         }
@@ -86,8 +114,8 @@ public class PlayerUiManagerScript : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(player.incomeTime);
-            player.budget += player.income;
+            yield return new WaitForSeconds(incomeTime);
+            playerScript.GainMoney(playerScript.income);
         }
         
     }
