@@ -3,7 +3,7 @@ using UnityEngine.AI;
 
 public class BarracksScript : MonoBehaviour
 {
-    [SerializeField] Player player;
+    [SerializeField] PlayerScript PlayerScript;
     [SerializeField] Unit conscript, sniper, heavy;
     public Transform  target, parent;
     public GameObject conscriptPrefab, sniperPrefab, heavyPrefab;
@@ -15,30 +15,36 @@ public class BarracksScript : MonoBehaviour
     }
     public void recruitConscript()
     {
-        if (player.budget >= conscript.cost && population < player.popCap)
+        if (PlayerScript.money >= conscript.cost && population < PlayerScript.popCap)
         {
-            player.budget -= conscript.cost;
+            PlayerScript.SpendMoney(conscript.cost);
+            PlayerUiManagerScript.Instance.UpdateMoney();
             GameObject unit = Instantiate(conscriptPrefab,transform.position,Quaternion.identity, parent);
+            PlayerUiManagerScript.Instance.UpdatePopulation();
             agent = unit.GetComponent<NavMeshAgent>();
             agent.SetDestination(target.position);
         }
     }
     public void recruitSniper()
     {
-        if(player.budget >= sniper.cost && population < player.popCap)
+        if(PlayerScript.money >= sniper.cost && population < PlayerScript.popCap)
         {
-            player.budget -= sniper.cost;
+            PlayerScript.SpendMoney(sniper.cost);
+            PlayerUiManagerScript.Instance.UpdateMoney();
             GameObject unit = Instantiate(sniperPrefab, transform.position, Quaternion.identity, parent);
+            PlayerUiManagerScript.Instance.UpdatePopulation();
             agent = unit.GetComponent<NavMeshAgent>();
             agent.SetDestination(target.position);
         }
     }
     public void recruitHeavy()
     {
-        if(player.budget >= heavy.cost && population < player.popCap)
+        if(PlayerScript.money >= heavy.cost && population < PlayerScript.popCap)
         {
-            player.budget -= heavy.cost;
+            PlayerScript.SpendMoney(heavy.cost);
+            PlayerUiManagerScript.Instance.UpdateMoney();
             GameObject unit = Instantiate(heavyPrefab, transform.position, Quaternion.identity, parent);
+            PlayerUiManagerScript.Instance.UpdatePopulation();
             agent = unit.GetComponent<NavMeshAgent>();
             agent.SetDestination(target.position);
         }

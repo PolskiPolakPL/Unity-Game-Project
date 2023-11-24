@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Player", menuName = "Player")]
+[CreateAssetMenu(fileName = "Player", menuName = "Player/Player")]
 public class Player : ScriptableObject
 {
     public int budget;
