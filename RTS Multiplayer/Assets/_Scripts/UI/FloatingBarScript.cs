@@ -6,14 +6,12 @@ public class FloatingBarScript : MonoBehaviour
     Slider slider;
     [SerializeField] Transform target;
     [SerializeField] Vector3 offset;
-    private void Awake()
-    {
-        slider = gameObject.GetComponent<Slider>();
-        target = transform.parent.parent;
-    }
 
     public void UpdateBarValue(float currentValue, float maxValue)
     {
+        slider = gameObject.GetComponent<Slider>();
+        if(target == null)
+            target = transform.parent.parent;
         slider.value = currentValue/maxValue;
     }
 

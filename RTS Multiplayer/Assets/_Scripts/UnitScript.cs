@@ -22,8 +22,6 @@ public class UnitScript : MonoBehaviour
     }
     void Start()
     {
-        //GameObject
-        Instantiate(model,transform.position,transform.rotation,transform);
         //Health
         currentHealth = unit.health;
         healthBar.UpdateBarValue(currentHealth, unit.health);
