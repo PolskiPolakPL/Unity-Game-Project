@@ -6,7 +6,6 @@ using UnityEngine.AI;
 public class UnitScript : MonoBehaviour
 {
     public Unit unit;
-    public GameObject model;
     public int currentHealth;
     [SerializeField] FloatingBarScript healthBar;
 
@@ -19,8 +18,6 @@ public class UnitScript : MonoBehaviour
         aiSensor.viewRange = unit.attackRange;
         healthBar = GetComponentInChildren<FloatingBarScript>();
         agent.stoppingDistance = 0.5f;
-        //GameObject
-        Instantiate(model,transform.position,transform.rotation,transform);
         //Health
         currentHealth = unit.health;
         healthBar.UpdateBarValue(currentHealth, unit.health);
