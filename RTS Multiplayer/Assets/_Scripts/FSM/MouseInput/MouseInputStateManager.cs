@@ -7,19 +7,20 @@ public class MouseInputStateManager : MonoBehaviour
     public DefaultMouseInputState DefaultState = new DefaultMouseInputState();
     public BuildingMouseInputState BuildingState = new BuildingMouseInputState();
 
-    //Unity references
-    public Camera camera;
-    public GameObject groundMarker;
-    public LayerMask friendlyMask;
-    public LayerMask groundLayerMask;
-    public CameraScript CameraScript { get; private set; }
-    public RaycastHit hit;
-    public RectTransform boxGFX;
-    public GameObject itemList;
+
+    [Header("Unit Selection Scripts")]
+    public UnitClick UnitClick;
+    public UnitDrag UnitDrag;
+
+    [Header("Unity Camera References")]
+    public Camera Cam;
+    public CameraScript CameraScript;
+    public RaycastHit Hit;
+
     private void Start()
     {
-        camera = Camera.main;
-        CameraScript = camera.transform.parent.GetComponent<CameraScript>();
+        if (Cam == null)
+            Cam = Camera.main;
         _CurrentState = DefaultState;
         _CurrentState.EnterState(this);
     }
