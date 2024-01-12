@@ -31,11 +31,11 @@ public class UnitScript : MonoBehaviour
 
     private void Update()
     {
-        if(agent.remainingDistance <= agent.stoppingDistance && !agent.isStopped)
-        {
+        //if(agent.remainingDistance <= agent.stoppingDistance && !agent.isStopped)
+        //{
             //agent.isStopped = true;
             //Debug.Log("HALT!");
-        }
+        //}
     }
 
     private void OnDestroy()

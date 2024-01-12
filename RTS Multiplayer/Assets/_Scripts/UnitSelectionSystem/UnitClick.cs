@@ -22,7 +22,7 @@ public class UnitClick : MonoBehaviour
         {
             ray = cam.ScreenPointToRay(Input.mousePosition);
 
-            if (Physics.Raycast(ray, out hit, Mathf.Infinity, friendlyMask) || EventSystem.current.IsPointerOverGameObject()) // something with friendly mask got hit
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity, friendlyMask)) // something with friendly mask got hit
             {
                 try
                 {

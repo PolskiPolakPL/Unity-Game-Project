@@ -4,7 +4,7 @@ using UnityEngine.EventSystems;
 public class BuildingMouseInputState : MouseInputBaseState
 {
     private Ray _ray;
-    private BuildingScript _script;
+    private ItemListScript _script;
     public override void EnterState(MouseInputStateManager mouseInput)
     {
         UnitSelection.Instance.DeselectAll();
@@ -12,7 +12,7 @@ public class BuildingMouseInputState : MouseInputBaseState
         mouseInput.UnitDrag.enabled = false;
         mouseInput.CameraScript.enabled = false;
         Debug.Log("Current State: BUILDING");
-        _script = mouseInput.Hit.transform.gameObject.GetComponent<BuildingScript>();
+        _script = mouseInput.Hit.transform.gameObject.GetComponent<ItemListScript>();
         _script.ShowItemList();
     }
 
@@ -26,7 +26,7 @@ public class BuildingMouseInputState : MouseInputBaseState
                 string hitTag = mouseInput.Hit.collider.tag;
                 if(hitTag == "Facility" && !EventSystem.current.IsPointerOverGameObject())
                 {
-                    mouseInput.Hit.transform.gameObject.GetComponent<BuildingScript>().ShowItemList();
+                    mouseInput.Hit.transform.gameObject.GetComponent<ItemListScript>().ShowItemList();
                 }
                 else if (!EventSystem.current.IsPointerOverGameObject())//Trafienie poza budynkiem (zmiana stanu na DefaultState)
                 {
