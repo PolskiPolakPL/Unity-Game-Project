@@ -4,7 +4,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Unit", menuName = "Unit")]
 public class Unit : ScriptableObject
 {
-    [SerializeField] UnitType type;
+    public string unitName;
+    public GameObject unitGO;
     public AudioClip fireSound;
     public int health;
     public int cost;

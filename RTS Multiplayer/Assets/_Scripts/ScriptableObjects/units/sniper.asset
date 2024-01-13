@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 021226d9ab32c2c45b29eb74c859c889, type: 3}
   m_Name: sniper
   m_EditorClassIdentifier: 
-  type: 2
+  unitName: Sniper
+  unitGO: {fileID: 7679600218647525199, guid: fb682eea40a7b8f4f9a6a3633b28fa2a, type: 3}
   fireSound: {fileID: 8300000, guid: 6ce002f41370a994382545f0c2339c2e, type: 3}
   health: 60
   cost: 90

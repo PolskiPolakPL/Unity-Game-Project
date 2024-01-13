@@ -1,31 +1,49 @@
+using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using TMPro;
+using System;
 
 public class ItemListScript : MonoBehaviour
 {
-    public GameObject itemList;
-
-    public void ShowItemList()
+    [SerializeField] List<Unit> unitsSOList;
+    [SerializeField] GameObject buttonTemplate;
+    [SerializeField] BarracksScript barrackScript;
+    private GameObject buttonGO;
+    private Button button;
+    private Unit unit;
+    // Start is called before the first frame update
+    void Start()
     {
-        // Get the RectTransform component of the unit list UI
-        RectTransform unitListRectTransform = itemList.GetComponent<RectTransform>();
-
-        // Calculate the width and height of the unit list UI
-        float unitListWidth = unitListRectTransform.rect.width;
-        float unitListHeight = unitListRectTransform.rect.height;
-
-        // Set the position of the unit list UI to the upper-left corner of the mouse click position
-        Vector3 unitListPosition = new Vector3(Input.mousePosition.x + (unitListWidth/4), Input.mousePosition.y - (unitListHeight/4), 0f);
-        
-        // Set the position of the unit list UI to the mouse click position
-        unitListRectTransform.position = unitListPosition;
-        
-        // Enable the unit list UI
-        itemList.SetActive(true);
+        for (int i = 0; i < unitsSOList.Count; i++)
+        {
+            unit = unitsSOList[i];
+            buttonGO = Instantiate(buttonTemplate, transform);
+            buttonGO.transform.GetChild(0).GetComponent<TMP_Text>().text = unit.unitName;
+            buttonGO.transform.GetChild(1).GetComponent<TMP_Text>().text = $"{unit.cost}$";
+            button = buttonGO.GetComponent<Button>();
+            button.AddEventListener(unit, BuyUnit);
+        }
+        Destroy(buttonTemplate);
     }
-    public void HideItemList()
+
+    void BuyUnit(Unit unit)
     {
-        itemList.SetActive(false);
+        if (GameManagerScript.Instance.isUnitRecruitmentValid(unit))
+        {
+            barrackScript.RecruitUnit(unit);
+        }
+    }
+
+}
+
+public static class ButtonExtention
+{
+    public static void AddEventListener<T>(this Button button, T param, Action<T> OnClick)
+    {
+        button.onClick.AddListener(delegate ()
+        {
+            OnClick(param);
+        });
     }
 }

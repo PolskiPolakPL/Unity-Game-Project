@@ -22,7 +22,6 @@ public class PlayerAIScript : MonoBehaviour
     public void LooseHealth(int amount)
     {
         hp -= amount;
-        PlayerUiManagerScript.Instance.UpdateEnemyPlayerHP();
     }
     public void GainMoney(int amount)
     {

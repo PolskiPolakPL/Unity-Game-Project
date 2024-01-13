@@ -1,8 +1,10 @@
 using UnityEngine;
+using System.Collections;
 
 public class PlayerScript : MonoBehaviour
 {
-    [SerializeField] PlayerStats playerStats;
+    public PlayerStats Stats;
+    public Transform UnitsT;
     public int maxHp { get; private set; }
     public int hp;
     public int money;
@@ -11,48 +13,62 @@ public class PlayerScript : MonoBehaviour
     public int popCap;
     public int population;
     // Start is called before the first frame update
+
+    private void Awake()//it is needed to guarantee an update on Enemy's health bar
+    {
+        maxHp = Stats.playerHP;
+        hp = Stats.playerHP;
+        money = Stats.money;
+        income = Stats.passiveIncome;
+        ammo = Stats.ammo;
+        popCap = Stats.popCap;
+        UpdatePopulationCount();
+        StartCoroutine(passiveIncomeCoroutine());
+    }
     void Start()
     {
-        maxHp = playerStats.playerHP;
-        hp = playerStats.playerHP;
-        money = playerStats.money;
-        income = playerStats.passiveIncome;
-        ammo = playerStats.ammo;
-        popCap = playerStats.popCap;
-        population = transform.GetChild(0).childCount;
+        if (UnitsT == null)
+            UnitsT = transform.GetChild(0);
     }
     private void Update()
+    {
+        UpdatePopulationCount();
+    }
+    public void UpdatePopulationCount()
     {
         population = transform.GetChild(0).childCount;
     }
     public void LooseHealth(int amount)
     {
         hp -= amount;
-        PlayerUiManagerScript.Instance.UpdatePlayerHP();
     }
     public void GainMoney(int amount)
     {
         money += amount;
-        PlayerUiManagerScript.Instance.UpdateMoney();
     }
     public void SpendMoney(int amount)
     {
         money -= amount;
-        PlayerUiManagerScript.Instance.UpdateMoney();
     }
     public void GainAmmo(int amount)
     {
         ammo += amount;
-        PlayerUiManagerScript.Instance.UpdateAmmo();
     }
     public void SpendAmmo(int amount)
     {
         ammo -= amount;
-        PlayerUiManagerScript.Instance.UpdateAmmo();
     }
     public void ChangePopulationCap(int newPopCap)
     {
         popCap = newPopCap;
-        PlayerUiManagerScript.Instance.UpdatePopulation();
+    }
+
+    IEnumerator passiveIncomeCoroutine()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(1);
+            GainMoney(income);
+        }
     }
 }
