@@ -2,7 +2,8 @@ using UnityEngine;
 
 public class PlayerScript : MonoBehaviour
 {
-    [SerializeField] PlayerStats playerStats;
+    public PlayerStats Stats;
+    public Transform UnitsT;
     public int maxHp { get; private set; }
     public int hp;
     public int money;
@@ -13,15 +14,21 @@ public class PlayerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        maxHp = playerStats.playerHP;
-        hp = playerStats.playerHP;
-        money = playerStats.money;
-        income = playerStats.passiveIncome;
-        ammo = playerStats.ammo;
-        popCap = playerStats.popCap;
-        population = transform.GetChild(0).childCount;
+        if (UnitsT == null)
+            UnitsT = transform.GetChild(0);
+        maxHp = Stats.playerHP;
+        hp = Stats.playerHP;
+        money = Stats.money;
+        income = Stats.passiveIncome;
+        ammo = Stats.ammo;
+        popCap = Stats.popCap;
+        UpdatePopulationCount();
     }
     private void Update()
+    {
+        UpdatePopulationCount();
+    }
+    public void UpdatePopulationCount()
     {
         population = transform.GetChild(0).childCount;
     }
