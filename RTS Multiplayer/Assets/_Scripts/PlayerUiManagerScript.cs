@@ -5,13 +5,9 @@ using TMPro;
 
 public class PlayerUiManagerScript : MonoBehaviour
 {
-    //singleton declarations
-    private static PlayerUiManagerScript instance;
-    public static PlayerUiManagerScript Instance { get { return instance; } }
-
     //UI declarations
     [SerializeField] PlayerScript playerScript;
-    [SerializeField] PlayerAIScript enemyScript;
+    [SerializeField] PlayerScript enemyScript;
     [Header("Timer")]
     [SerializeField] TMP_Text timer;
     private int _minutes = 0, _seconds = 0;
@@ -21,31 +17,17 @@ public class PlayerUiManagerScript : MonoBehaviour
     [SerializeField] TMP_Text enemyHpTMP;
     [SerializeField] Slider enemyHpBar;
     [Header("Resources")]
-    [SerializeField] float incomeTime = 1;
     [SerializeField] TMP_Text moneyTMP;
     [SerializeField] TMP_Text populationTMP;
 
-    private void Awake()
-    {
-        //je¿eli istnieje inna instancja tej klasy, zniszcz tê instancjê
-        if (instance != null && instance != this)
-        {
-            Destroy(this.gameObject);
-        }
-        else
-        {
-            instance = this;
-        }
-    }
     // Start is called before the first frame update
     void Start()
     {
         UpdatePopulation();
         UpdateMoney();
-        UpdateEnemyPlayerHP();
         UpdatePlayerHP();
+        UpdateEnemyPlayerHP();
         StartCoroutine(TimerCoroutine());
-        StartCoroutine(passiveIncomeCoroutine());
     }
 
     // Update is called once per frame
@@ -53,6 +35,8 @@ public class PlayerUiManagerScript : MonoBehaviour
     {
         UpdatePopulation();
         UpdateMoney();
+        UpdateEnemyPlayerHP();
+        UpdatePlayerHP();
     }
     public void UpdatePlayerHP()
     {
@@ -62,7 +46,6 @@ public class PlayerUiManagerScript : MonoBehaviour
     public void UpdateEnemyPlayerHP()
     {
         enemyHpBar.value = (float)enemyScript.hp / (float)enemyScript.maxHp;
-        Debug.Log($"Enemy HP: {(float)enemyScript.hp}/{(float)enemyScript.maxHp}hp");
         enemyHpTMP.text = enemyScript.hp.ToString();
     }
     public void UpdateMoney()
@@ -106,16 +89,6 @@ public class PlayerUiManagerScript : MonoBehaviour
                 min=_minutes.ToString();
             }
             timer.text = min + ":" + sec;
-        }
-        
-    }
-
-    IEnumerator passiveIncomeCoroutine()
-    {
-        while (true)
-        {
-            yield return new WaitForSeconds(incomeTime);
-            playerScript.GainMoney(playerScript.income);
         }
         
     }

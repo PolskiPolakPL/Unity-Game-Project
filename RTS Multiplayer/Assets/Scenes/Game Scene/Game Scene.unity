@@ -848,7 +848,7 @@ MonoBehaviour:
   dominationPointsParent: {fileID: 70012294}
   advantageMultiplayer: 1
   playerScript: {fileID: 1635268912}
-  enemyPlayerScript: {fileID: 1872987533}
+  enemyPlayerScript: {fileID: 1872987535}
   _friendlyPoints: 0
   _enemyPoints: 0
   winEvent:
@@ -6897,13 +6897,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerScript: {fileID: 1635268912}
-  enemyScript: {fileID: 1872987533}
+  enemyScript: {fileID: 1872987535}
   timer: {fileID: 1811158730}
   playerHpTMP: {fileID: 1941683273}
   playerHpBar: {fileID: 1084647606}
   enemyHpTMP: {fileID: 1633701476}
   enemyHpBar: {fileID: 1559826102}
-  incomeTime: 1
   moneyTMP: {fileID: 1123170902}
   populationTMP: {fileID: 341022065}
 --- !u!1 &1811158728
@@ -7138,7 +7137,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1872987534}
-  - component: {fileID: 1872987533}
+  - component: {fileID: 1872987535}
   m_Layer: 0
   m_Name: Player2
   m_TagString: Untagged
@@ -7146,23 +7145,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1872987533
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1872987532}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16cce485a7ae6c847906f64297115613, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerStats: {fileID: 11400000, guid: 0eac2d10e46c3f94dae69c3bc6eebe4c, type: 2}
-  hp: 0
-  money: 0
-  ammo: 0
-  popCap: 0
 --- !u!4 &1872987534
 Transform:
   m_ObjectHideFlags: 0
@@ -7179,6 +7161,26 @@ Transform:
   m_Father: {fileID: 514954915}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1872987535
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1872987532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e391eb3e2017647459736722f1a69e66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Stats: {fileID: 11400000, guid: 0eac2d10e46c3f94dae69c3bc6eebe4c, type: 2}
+  UnitsT: {fileID: 2094851361}
+  hp: 0
+  money: 0
+  income: 0
+  ammo: 0
+  popCap: 0
+  population: 0
 --- !u!1 &1936155417
 GameObject:
   m_ObjectHideFlags: 0

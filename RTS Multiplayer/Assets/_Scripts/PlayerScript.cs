@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class PlayerScript : MonoBehaviour
 {
@@ -12,10 +13,9 @@ public class PlayerScript : MonoBehaviour
     public int popCap;
     public int population;
     // Start is called before the first frame update
-    void Start()
+
+    private void Awake()//it is needed to guarantee an update on Enemy's health bar
     {
-        if (UnitsT == null)
-            UnitsT = transform.GetChild(0);
         maxHp = Stats.playerHP;
         hp = Stats.playerHP;
         money = Stats.money;
@@ -23,6 +23,12 @@ public class PlayerScript : MonoBehaviour
         ammo = Stats.ammo;
         popCap = Stats.popCap;
         UpdatePopulationCount();
+        StartCoroutine(passiveIncomeCoroutine());
+    }
+    void Start()
+    {
+        if (UnitsT == null)
+            UnitsT = transform.GetChild(0);
     }
     private void Update()
     {
@@ -35,31 +41,34 @@ public class PlayerScript : MonoBehaviour
     public void LooseHealth(int amount)
     {
         hp -= amount;
-        PlayerUiManagerScript.Instance.UpdatePlayerHP();
     }
     public void GainMoney(int amount)
     {
         money += amount;
-        PlayerUiManagerScript.Instance.UpdateMoney();
     }
     public void SpendMoney(int amount)
     {
         money -= amount;
-        PlayerUiManagerScript.Instance.UpdateMoney();
     }
     public void GainAmmo(int amount)
     {
         ammo += amount;
-        PlayerUiManagerScript.Instance.UpdateAmmo();
     }
     public void SpendAmmo(int amount)
     {
         ammo -= amount;
-        PlayerUiManagerScript.Instance.UpdateAmmo();
     }
     public void ChangePopulationCap(int newPopCap)
     {
         popCap = newPopCap;
-        PlayerUiManagerScript.Instance.UpdatePopulation();
+    }
+
+    IEnumerator passiveIncomeCoroutine()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(1);
+            GainMoney(income);
+        }
     }
 }

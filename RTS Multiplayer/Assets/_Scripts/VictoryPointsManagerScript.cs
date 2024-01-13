@@ -6,7 +6,7 @@ public class VictoryPointsManagerScript : MonoBehaviour
     [SerializeField] Transform dominationPointsParent;
     [SerializeField] int advantageMultiplayer = 1;
     [SerializeField] PlayerScript playerScript;
-    [SerializeField] PlayerAIScript enemyPlayerScript;
+    [SerializeField] PlayerScript enemyPlayerScript;
     [SerializeField] private int _friendlyPoints, _enemyPoints;
     public UnityEvent winEvent;
     public UnityEvent defeatEvent;
