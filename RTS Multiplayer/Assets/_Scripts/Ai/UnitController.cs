@@ -11,7 +11,7 @@ public class UnitController : MonoBehaviour
     private void Start()
     {
         cam = Camera.main;
-        agent = transform.parent.parent.GetComponent<NavMeshAgent>();
+        agent = transform.parent.GetComponent<NavMeshAgent>();
     }
 
     void Update()
