@@ -1,8 +1,9 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class UnitDrag : MonoBehaviour
 {
-    Camera cam;
+    [SerializeField] Camera cam;
     [SerializeField] RectTransform boxGFX;
 
     Rect selectionBox;
@@ -17,15 +18,17 @@ public class UnitDrag : MonoBehaviour
         startPosition = Vector2.zero;
         endPosition = Vector2.zero;
         DrawGFX();
+        selectionBox = new Rect();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (EventSystem.current.IsPointerOverGameObject())
+            return;
         if (Input.GetMouseButtonDown(0))
         {//klikni?cie myszy
             startPosition = Input.mousePosition;
-            selectionBox = new Rect();
         }
         if (Input.GetMouseButton(0))
         {//trzymanie myszy

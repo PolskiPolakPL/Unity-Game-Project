@@ -26,8 +26,10 @@ public class PlayerUiManagerScript : MonoBehaviour
         UpdatePopulation();
         UpdateMoney();
         UpdatePlayerHP();
-        UpdateEnemyPlayerHP();
-        StartCoroutine(TimerCoroutine());
+        if(enemyScript!=null)
+            UpdateEnemyPlayerHP();
+        if(timer!=null)
+            StartCoroutine(TimerCoroutine());
     }
 
     // Update is called once per frame
@@ -35,22 +37,28 @@ public class PlayerUiManagerScript : MonoBehaviour
     {
         UpdatePopulation();
         UpdateMoney();
-        UpdateEnemyPlayerHP();
+        if (enemyScript != null)
+            UpdateEnemyPlayerHP();
         UpdatePlayerHP();
     }
     public void UpdatePlayerHP()
     {
-        playerHpBar.value = (float)playerScript.hp / (float)playerScript.maxHp;
-        playerHpTMP.text = playerScript.hp.ToString();
+        if(playerHpBar != null)
+            playerHpBar.value = (float)playerScript.hp / (float)playerScript.maxHp;
+        if(enemyHpTMP != null)
+            playerHpTMP.text = playerScript.hp.ToString();
     }
     public void UpdateEnemyPlayerHP()
     {
-        enemyHpBar.value = (float)enemyScript.hp / (float)enemyScript.maxHp;
-        enemyHpTMP.text = enemyScript.hp.ToString();
+        if(enemyHpBar != null)
+            enemyHpBar.value = (float)enemyScript.hp / (float)enemyScript.maxHp;
+        if(moneyTMP != null)
+            enemyHpTMP.text = enemyScript.hp.ToString();
     }
     public void UpdateMoney()
     {
-        moneyTMP.text = $"{playerScript.money}$";
+        if(moneyTMP != null)
+            moneyTMP.text = $"{playerScript.money}$";
     }
     public void UpdateAmmo()
     {
@@ -58,7 +66,8 @@ public class PlayerUiManagerScript : MonoBehaviour
     }
     public void UpdatePopulation()
     {
-        populationTMP.text = $"{playerScript.population}/{playerScript.popCap}";
+        if(populationTMP != null)
+            populationTMP.text = $"{playerScript.population}/{playerScript.popCap}";
     }
     IEnumerator TimerCoroutine()
     {
