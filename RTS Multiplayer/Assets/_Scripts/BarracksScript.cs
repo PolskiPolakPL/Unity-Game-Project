@@ -3,50 +3,33 @@ using UnityEngine.AI;
 
 public class BarracksScript : MonoBehaviour
 {
-    [SerializeField] PlayerScript PlayerScript;
-    [SerializeField] Unit conscript, sniper, heavy;
-    public Transform  target, parent;
-    public GameObject conscriptPrefab, sniperPrefab, heavyPrefab;
-    NavMeshAgent agent;
-    int population;
-    private void Update()
+    [SerializeField] PlayerScript playerScript;
+    [SerializeField] Transform target;
+    public GameObject itemList;
+    private void Start()
     {
-        population = parent.childCount;
+        if (target == null)
+            target = transform.GetChild(0);
     }
-    public void recruitConscript()
+
+    public void RecruitUnit(Unit unitSO)
     {
-        if (PlayerScript.money >= conscript.cost && population < PlayerScript.popCap)
-        {
-            PlayerScript.SpendMoney(conscript.cost);
-            PlayerUiManagerScript.Instance.UpdateMoney();
-            GameObject unit = Instantiate(conscriptPrefab,transform.position,Quaternion.identity, parent);
-            PlayerUiManagerScript.Instance.UpdatePopulation();
-            agent = unit.GetComponent<NavMeshAgent>();
-            agent.SetDestination(target.position);
-        }
+        playerScript.SpendMoney(unitSO.cost);
+        GameObject _unitGO = Instantiate(unitSO.unitGO, transform.position, transform.rotation, playerScript.UnitsT);
+        NavMeshAgent _unitAI = _unitGO.GetComponent<NavMeshAgent>();
+        _unitAI.SetDestination(target.position);
     }
-    public void recruitSniper()
+    public void ShowItemList()
     {
-        if(PlayerScript.money >= sniper.cost && population < PlayerScript.popCap)
-        {
-            PlayerScript.SpendMoney(sniper.cost);
-            PlayerUiManagerScript.Instance.UpdateMoney();
-            GameObject unit = Instantiate(sniperPrefab, transform.position, Quaternion.identity, parent);
-            PlayerUiManagerScript.Instance.UpdatePopulation();
-            agent = unit.GetComponent<NavMeshAgent>();
-            agent.SetDestination(target.position);
-        }
+        RectTransform unitListRectTransform = itemList.GetComponent<RectTransform>();
+        float unitListWidth = unitListRectTransform.rect.width;
+        float unitListHeight = unitListRectTransform.rect.height;
+        Vector3 unitListPosition = new Vector3(Input.mousePosition.x + (unitListWidth / 4), Input.mousePosition.y - (unitListHeight / 4), 0f);
+        unitListRectTransform.position = unitListPosition;
+        itemList.SetActive(true);
     }
-    public void recruitHeavy()
+    public void HideItemList()
     {
-        if(PlayerScript.money >= heavy.cost && population < PlayerScript.popCap)
-        {
-            PlayerScript.SpendMoney(heavy.cost);
-            PlayerUiManagerScript.Instance.UpdateMoney();
-            GameObject unit = Instantiate(heavyPrefab, transform.position, Quaternion.identity, parent);
-            PlayerUiManagerScript.Instance.UpdatePopulation();
-            agent = unit.GetComponent<NavMeshAgent>();
-            agent.SetDestination(target.position);
-        }
+        itemList.SetActive(false);
     }
 }

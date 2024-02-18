@@ -8,7 +8,7 @@ public class UnitSelection : MonoBehaviour
 
     private static UnitSelection instance;
     public static UnitSelection Instance { get { return instance; } }
-    [SerializeField] int childIndex = 0;
+    [Tooltip("position of selection circle in unit's hierarchy")][SerializeField] int childIndex = 1;
 
     private void Awake()
     {
@@ -27,7 +27,7 @@ public class UnitSelection : MonoBehaviour
     {
         DeselectAll();
         unitsSelected.Add(unitToAdd);
-        unitToAdd.transform.GetChild(childIndex).GetChild(0).gameObject.SetActive(true);
+        unitToAdd.transform.GetChild(childIndex).gameObject.SetActive(true);
     }
 
     public void ShiftClickSelect(GameObject unitToAdd)
@@ -35,11 +35,11 @@ public class UnitSelection : MonoBehaviour
         if (!unitsSelected.Contains(unitToAdd))
         {
             unitsSelected.Add(unitToAdd);
-            unitToAdd.transform.GetChild(childIndex).GetChild(0).gameObject.SetActive(true);
+            unitToAdd.transform.GetChild(childIndex).gameObject.SetActive(true);
         }
         else
         {
-            unitToAdd.transform.GetChild(childIndex).GetChild(0).gameObject.SetActive(false);
+            unitToAdd.transform.GetChild(childIndex).gameObject.SetActive(false);
             unitsSelected.Remove(unitToAdd);
         }
     }
@@ -49,7 +49,7 @@ public class UnitSelection : MonoBehaviour
         if (!unitsSelected.Contains(unitToAdd))
         {
             unitsSelected.Add(unitToAdd);
-            unitToAdd.transform.GetChild(childIndex).GetChild(0).gameObject.SetActive(true);
+            unitToAdd.transform.GetChild(childIndex).gameObject.SetActive(true);
         }
     }
 
@@ -57,7 +57,7 @@ public class UnitSelection : MonoBehaviour
     {
         foreach(GameObject unit in unitsSelected)
         {
-            unit.transform.GetChild(childIndex).GetChild(0).gameObject.SetActive(false);
+            unit.transform.GetChild(childIndex).gameObject.SetActive(false);
         }
         unitsSelected.Clear();
     }

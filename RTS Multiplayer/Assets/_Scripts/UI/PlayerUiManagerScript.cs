@@ -5,13 +5,9 @@ using TMPro;
 
 public class PlayerUiManagerScript : MonoBehaviour
 {
-    //singleton declarations
-    private static PlayerUiManagerScript instance;
-    public static PlayerUiManagerScript Instance { get { return instance; } }
-
     //UI declarations
     [SerializeField] PlayerScript playerScript;
-    [SerializeField] PlayerAIScript enemyScript;
+    [SerializeField] PlayerScript enemyScript;
     [Header("Timer")]
     [SerializeField] TMP_Text timer;
     private int _minutes = 0, _seconds = 0;
@@ -21,31 +17,19 @@ public class PlayerUiManagerScript : MonoBehaviour
     [SerializeField] TMP_Text enemyHpTMP;
     [SerializeField] Slider enemyHpBar;
     [Header("Resources")]
-    [SerializeField] float incomeTime = 1;
     [SerializeField] TMP_Text moneyTMP;
     [SerializeField] TMP_Text populationTMP;
 
-    private void Awake()
-    {
-        //je¿eli istnieje inna instancja tej klasy, zniszcz tê instancjê
-        if (instance != null && instance != this)
-        {
-            Destroy(this.gameObject);
-        }
-        else
-        {
-            instance = this;
-        }
-    }
     // Start is called before the first frame update
     void Start()
     {
         UpdatePopulation();
         UpdateMoney();
-        UpdateEnemyPlayerHP();
         UpdatePlayerHP();
-        StartCoroutine(TimerCoroutine());
-        StartCoroutine(passiveIncomeCoroutine());
+        if(enemyScript!=null)
+            UpdateEnemyPlayerHP();
+        if(timer!=null)
+            StartCoroutine(TimerCoroutine());
     }
 
     // Update is called once per frame
@@ -53,21 +37,28 @@ public class PlayerUiManagerScript : MonoBehaviour
     {
         UpdatePopulation();
         UpdateMoney();
+        if (enemyScript != null)
+            UpdateEnemyPlayerHP();
+        UpdatePlayerHP();
     }
     public void UpdatePlayerHP()
     {
-        playerHpBar.value = (float)playerScript.hp / (float)playerScript.maxHp;
-        playerHpTMP.text = playerScript.hp.ToString();
+        if(playerHpBar != null)
+            playerHpBar.value = (float)playerScript.hp / (float)playerScript.maxHp;
+        if(enemyHpTMP != null)
+            playerHpTMP.text = playerScript.hp.ToString();
     }
     public void UpdateEnemyPlayerHP()
     {
-        enemyHpBar.value = (float)enemyScript.hp / (float)enemyScript.maxHp;
-        Debug.Log($"Enemy HP: {(float)enemyScript.hp}/{(float)enemyScript.maxHp}hp");
-        enemyHpTMP.text = enemyScript.hp.ToString();
+        if(enemyHpBar != null)
+            enemyHpBar.value = (float)enemyScript.hp / (float)enemyScript.maxHp;
+        if(moneyTMP != null)
+            enemyHpTMP.text = enemyScript.hp.ToString();
     }
     public void UpdateMoney()
     {
-        moneyTMP.text = $"{playerScript.money}$";
+        if(moneyTMP != null)
+            moneyTMP.text = $"{playerScript.money}$";
     }
     public void UpdateAmmo()
     {
@@ -75,7 +66,8 @@ public class PlayerUiManagerScript : MonoBehaviour
     }
     public void UpdatePopulation()
     {
-        populationTMP.text = $"{playerScript.population}/{playerScript.popCap}";
+        if(populationTMP != null)
+            populationTMP.text = $"{playerScript.population}/{playerScript.popCap}";
     }
     IEnumerator TimerCoroutine()
     {
@@ -106,16 +98,6 @@ public class PlayerUiManagerScript : MonoBehaviour
                 min=_minutes.ToString();
             }
             timer.text = min + ":" + sec;
-        }
-        
-    }
-
-    IEnumerator passiveIncomeCoroutine()
-    {
-        while (true)
-        {
-            yield return new WaitForSeconds(incomeTime);
-            playerScript.GainMoney(playerScript.income);
         }
         
     }
