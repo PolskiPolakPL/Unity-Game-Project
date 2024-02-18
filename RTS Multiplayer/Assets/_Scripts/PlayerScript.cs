@@ -36,7 +36,7 @@ public class PlayerScript : MonoBehaviour
     }
     public void UpdatePopulationCount()
     {
-        population = transform.GetChild(0).childCount;
+        population = UnitsT.childCount;
     }
     public void LooseHealth(int amount)
     {

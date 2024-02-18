@@ -1556,6 +1556,10 @@ PrefabInstance:
       propertyPath: field of view
       value: 60
       objectReference: {fileID: 0}
+    - target: {fileID: 2831418926991665579, guid: ecc37587214fe1f45ba25467662342a7, type: 3}
+      propertyPath: m_CullingMask.m_Bits
+      value: 2047
+      objectReference: {fileID: 0}
     - target: {fileID: 2831418926991665623, guid: ecc37587214fe1f45ba25467662342a7, type: 3}
       propertyPath: m_TagString
       value: MainCamera
@@ -5405,7 +5409,6 @@ Transform:
   m_Children:
   - {fileID: 414756590}
   - {fileID: 705507995}
-  - {fileID: 1965743570}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6021,7 +6024,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1965743570}
   m_Father: {fileID: 317205481}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7517,7 +7521,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1127340749}
-  m_Father: {fileID: 1255230295}
+  m_Father: {fileID: 1424746334}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1969406638
