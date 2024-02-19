@@ -3232,7 +3232,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 287}
-  m_SizeDelta: {x: 237.9974, y: 53.3041}
+  m_SizeDelta: {x: 416.0949, y: 53.3041}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &957244508
 MonoBehaviour:
@@ -3254,7 +3254,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Beta 1.2
+  m_text: Beta 1.2.1
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3606,7 +3606,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: <color=#202020>Heavy soldier</color> is a slow and expensive unit but he
+  m_text: <color=#000000>Heavy soldier</color> is a slow and expensive unit but he
     can quickly obliterate any unit that comes into his range
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
