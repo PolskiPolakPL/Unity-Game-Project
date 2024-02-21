@@ -1,4 +1,8 @@
-![New Project (1)](https://github.com/PolskiPolakPL/Unity-Game-Project/assets/97120832/321971fe-ac60-4421-bcf8-04363f3635c5)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://github.com/PolskiPolakPL/Unity-Game-Project/assets/97120832/321971fe-ac60-4421-bcf8-04363f3635c5">
+  <source media="(prefers-color-scheme: light)" srcset="https://github.com/PolskiPolakPL/Unity-Game-Project/assets/97120832/21349637-f152-42e0-91aa-48708c4ac646">
+  <img alt="Shows an illustrated sun in light mode and a moon with stars in dark mode." src="https://github.com/PolskiPolakPL/Unity-Game-Project/assets/97120832/321971fe-ac60-4421-bcf8-04363f3635c5">
+</picture>
 A Unity RTS Game Project made for collage, continued for passion.
 
 
@@ -21,11 +25,11 @@ After the ongoing overhaul, the game will see the introduction of new units, map
 
 ### Sound Effects
 - **Heavy Fire** - "AK Firing" from [SCP:SL Wiki](https://en.scpslgame.com/index.php?title=AK) (temporary placeholder sound)
-- **Sniper Fire** - (M1 Garand Sound Effect)
-- **Conscript Fire** - (Generic Rifle Fire)
+- **Sniper Fire** - M1 Garand Sound Effect (will be replaced soon)
+- **Conscript Fire** - Generic Rifle Fire (will be replaced soon)
 
 ### Music:
-- **Main Menu Music** - "The Strategy" (as for my current knowlage it is a Royalyty Free Music)
+- **Main Menu Music** - "The Strategy" by [Unknown author](https://youtu.be/gVXjjWAOQZg) (propably Royalty Free Music, I linked the source closest to the author)
 - **In-Game Music** - "Strategy Background Music" by [Musdo](https://www.youtube.com/@MUSDOMusicForContentCreators)
 
 
