@@ -6041,6 +6041,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b68f63ac37946bc47a491d31549e90c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cam: {fileID: 0}
   boxGFX: {fileID: 1712503191}
 --- !u!114 &1424746336
 MonoBehaviour:
