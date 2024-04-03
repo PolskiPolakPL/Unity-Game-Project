@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 13966, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: New Scene
+  m_EditorClassIdentifier: 
+  templateScene: {fileID: 102900000, guid: 22afc15b38a6fc84ca43426881506d59, type: 3}
+  templateName: Empty RTS Scene
+  description: An empty scene with essential "Categories" and GameObjects for an
+    FPS Game
+  preview: {fileID: 0}
+  dependencies:
+  - dependency: {fileID: 2831418927087984333, guid: ecc37587214fe1f45ba25467662342a7, type: 3}
+    instantiationMode: 0
+  templatePipeline: {fileID: 0}
+  badge: {fileID: 0}
+  addToDefaults: 0
