@@ -31,13 +31,13 @@ AudioMixerController:
   m_UpdateMode: 0
   m_ExposedParameters:
   - guid: 0e6e55213f613654da975241376769cc
-    name: MasterVolume
+    name: Master
   - guid: ea012a2d181027a44902587b996b2f93
-    name: MusicVolume
+    name: Music
   - guid: 29761e48d106e6644a40db3464410346
-    name: SFXVolume
+    name: SFX
   - guid: 636884c66fb44714882e2a27fed428dd
-    name: UIVolume
+    name: UI
   m_AudioMixerGroupViews:
   - guids:
     - fbcd228ca19fe194d855f87dea654731
@@ -65,7 +65,7 @@ AudioMixerGroupController:
   m_Send: 00000000000000000000000000000000
   m_Effects:
   - {fileID: 24400004}
-  m_UserColorIndex: 0
+  m_UserColorIndex: 3
   m_Mute: 0
   m_Solo: 0
   m_BypassEffects: 0
@@ -94,7 +94,7 @@ AudioMixerSnapshotController:
   m_SnapshotID: b71d73055e8fb82418635ab6f671b043
   m_FloatValues:
     0e6e55213f613654da975241376769cc: -0.08374829
-    ea012a2d181027a44902587b996b2f93: -0.16685188
+    ea012a2d181027a44902587b996b2f93: -0.025776558
   m_TransitionOverrides: {}
 --- !u!244 &1917934578788408296
 AudioMixerEffectController:
