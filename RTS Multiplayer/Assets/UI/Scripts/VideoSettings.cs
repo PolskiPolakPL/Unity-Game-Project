@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -12,6 +11,7 @@ public class VideoSettings : MonoBehaviour
     [SerializeField] Toggle antiAliasingToggle;
 
     Resolution[] resolutions;
+    Resolution[] newResolutions;
 
     private void Start()
     {
@@ -50,7 +50,8 @@ public class VideoSettings : MonoBehaviour
 
     public void SetResolution(int resolutionindex)
     {
-        Resolution resolution = resolutions[resolutionindex];
+
+        Resolution resolution = newResolutions[resolutionindex];
         Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
         PlayerPrefs.SetInt("ResolutionIndex", resolutionindex);
     }
@@ -105,21 +106,30 @@ public class VideoSettings : MonoBehaviour
 
     void AddResolutionOptions()
     {
+        //declaring lists and local variables
         List<string> _options = new List<string>();
+        List<Resolution> _newResolutions = new List<Resolution>();
         string _option;
         int _currentResolutionIndex = 0;
         Resolution _resolution;
+        //Filling up Lists
         for(int i=0;i<resolutions.Length;i++)
         {
             _resolution = resolutions[i];
             _option = _resolution.width + " x " + _resolution.height;
-            _options.Add(_option);
+            if (!_options.Contains(_option))
+            {
+                _options.Add(_option);
+                _newResolutions.Add(_resolution);
+            }
             if(_resolution.width == Screen.currentResolution.width && _resolution.height == Screen.currentResolution.height)
             {
                 _currentResolutionIndex = i;
             }
         }
+        //Adding options and saving new, shorten Array of resolutions
         resolutionDropdown.AddOptions(_options);
+        newResolutions = _newResolutions.ToArray();
         resolutionDropdown.value = _currentResolutionIndex;
     }
 }
