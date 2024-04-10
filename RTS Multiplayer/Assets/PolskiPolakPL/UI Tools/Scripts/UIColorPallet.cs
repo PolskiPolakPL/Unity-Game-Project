@@ -75,7 +75,7 @@ namespace PolskiPolakPL.Utils.UI
     [System.Serializable]
     class ColorStyle
     {
-        public Color Color = new Color(250, 250, 250, 250);
+        public Color Color;
         public List<Image> ImagesList = new List<Image>();
         public List<TMP_Text> TextsList = new List<TMP_Text>();
 
