@@ -22,40 +22,36 @@ public class VolumeSettings : MonoBehaviour
             SetAllVolumes();
         }
     }
-    public void SetMasterVolume()
+    public void SetMasterVolume(float volume)
     {
-        float volume = masterSlider.value;
         audioMixer.SetFloat("Master", Mathf.Log10(volume) * 20);
         PlayerPrefs.SetFloat("MasterVolume", volume);
     }
 
-    public void SetMusicVolume()
+    public void SetMusicVolume(float volume)
     {
-        float volume = musicSlider.value;
         audioMixer.SetFloat("Music", Mathf.Log10(volume) * 20);
         PlayerPrefs.SetFloat("MusicVolume", volume);
     }
 
-    public void SetSFXVolume()
+    public void SetSFXVolume(float volume)
     {
-        float volume = sfxSlider.value;
         audioMixer.SetFloat("SFX", Mathf.Log10(volume) * 20);
         PlayerPrefs.SetFloat("SFXVolume", volume);
     }
 
-    public void SetUIVolume()
+    public void SetUIVolume(float volume)
     {
-        float volume = uiSlider.value;
         audioMixer.SetFloat("UI", Mathf.Log10(volume) * 20);
         PlayerPrefs.SetFloat("UIVolume", volume);
     }
 
     private void SetAllVolumes()
     {
-        SetMasterVolume();
-        SetMusicVolume();
-        SetSFXVolume();
-        SetUIVolume();
+        SetMasterVolume(masterSlider.value);
+        SetMusicVolume(musicSlider.value);
+        SetSFXVolume(sfxSlider.value);
+        SetUIVolume(uiSlider.value);
     }
 
     private void LoadVolumes()

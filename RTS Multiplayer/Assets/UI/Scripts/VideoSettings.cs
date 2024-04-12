@@ -9,6 +9,7 @@ public class VideoSettings : MonoBehaviour
     [SerializeField] TMP_Dropdown resolutionDropdown;
     [SerializeField] Toggle vSynchToggle;
     [SerializeField] Toggle antiAliasingToggle;
+    [SerializeField] Slider fpsSlider;
 
     Resolution[] resolutions;
     Resolution[] newResolutions;
@@ -18,16 +19,14 @@ public class VideoSettings : MonoBehaviour
         resolutions = Screen.resolutions;
         resolutionDropdown.ClearOptions();
         AddResolutionOptions();
-        resolutionDropdown.RefreshShownValue();
+        InitializeSettings();
+    }
 
-        if (PlayerPrefs.HasKey("ResolutionIndex"))
-        {
-            LoadAllSettings();
-        }
-        else
-        {
-            SetAllSettings();
-        }
+    public void SetFPSLimiter(float value)
+    {
+        int _fps = (int)value;
+        Application.targetFrameRate = _fps;
+        PlayerPrefs.SetInt("FPSLimit", _fps);
     }
 
     public void SetVSync(bool isOn)
@@ -79,32 +78,12 @@ public class VideoSettings : MonoBehaviour
         PlayerPrefs.SetInt("DisplayModeIndex",displayModeIndex);
     }
 
-    bool IntToBool(int value)
+    private bool IntToBool(int value)
     {
         return value > 0;
     }
 
-    void LoadAllSettings()
-    {
-        displayDropdown.value = PlayerPrefs.GetInt("DisplayModeIndex");
-        displayDropdown.RefreshShownValue();
-        resolutionDropdown.value = PlayerPrefs.GetInt("ResolutionIndex");
-        resolutionDropdown.RefreshShownValue();
-        vSynchToggle.isOn = IntToBool(PlayerPrefs.GetInt("Vsync"));
-        antiAliasingToggle.isOn = IntToBool(PlayerPrefs.GetInt("AntiAliasing"));
-
-        SetAllSettings();
-    }
-
-    void SetAllSettings()
-    {
-        SetVSync(vSynchToggle.isOn);
-        SetAntiAliasing(antiAliasingToggle.isOn);
-        SetDisplayMode(displayDropdown.value);
-        SetResolution(resolutionDropdown.value);
-    }
-
-    void AddResolutionOptions()
+    private void AddResolutionOptions()
     {
         //declaring lists and local variables
         List<string> _options = new List<string>();
@@ -113,7 +92,7 @@ public class VideoSettings : MonoBehaviour
         int _currentResolutionIndex = 0;
         Resolution _resolution;
         //Filling up Lists
-        for(int i=0;i<resolutions.Length;i++)
+        for(int i=resolutions.Length-1; i>=0;i--)
         {
             _resolution = resolutions[i];
             _option = _resolution.width + " x " + _resolution.height;
@@ -122,14 +101,61 @@ public class VideoSettings : MonoBehaviour
                 _options.Add(_option);
                 _newResolutions.Add(_resolution);
             }
-            if(_resolution.width == Screen.currentResolution.width && _resolution.height == Screen.currentResolution.height)
+        }
+
+    foreach(Resolution resolution in _newResolutions)
+        {
+            if (resolution.width == Screen.currentResolution.width && resolution.height == Screen.currentResolution.height)
             {
-                _currentResolutionIndex = i;
+                _currentResolutionIndex = _newResolutions.IndexOf(resolution);
+                break;
             }
         }
         //Adding options and saving new, shorten Array of resolutions
         resolutionDropdown.AddOptions(_options);
+        resolutionDropdown.SetValueWithoutNotify(_currentResolutionIndex);
+        resolutionDropdown.RefreshShownValue();
         newResolutions = _newResolutions.ToArray();
-        resolutionDropdown.value = _currentResolutionIndex;
+    }
+
+    private void InitializeSettings()
+    {
+
+        //Resolution
+        if (PlayerPrefs.HasKey("ResolutionIndex"))
+        {
+            resolutionDropdown.value = PlayerPrefs.GetInt("ResolutionIndex");
+            resolutionDropdown.RefreshShownValue();
+        }
+        SetResolution(resolutionDropdown.value);
+
+        //Display Mode
+        if (PlayerPrefs.HasKey("DisplayModeIndex"))
+        {
+            displayDropdown.value = PlayerPrefs.GetInt("DisplayModeIndex");
+            displayDropdown.RefreshShownValue();
+        }
+        SetDisplayMode(displayDropdown.value);
+
+        //FPS limiter
+        if (PlayerPrefs.HasKey("FPSLimit"))
+        {
+            fpsSlider.value = (float)PlayerPrefs.GetInt("FPSLimit");
+        }
+        SetFPSLimiter(fpsSlider.value);
+
+        //V-Sync
+        if (PlayerPrefs.HasKey("Vsync"))
+        {
+            vSynchToggle.isOn = IntToBool(PlayerPrefs.GetInt("Vsync"));
+        }
+        SetVSync(vSynchToggle.isOn);
+
+        //Anti-Aliasing
+        if (PlayerPrefs.HasKey("AntiAliasing"))
+        {
+            antiAliasingToggle.isOn = IntToBool(PlayerPrefs.GetInt("AntiAliasing"));
+        }
+        SetAntiAliasing(antiAliasingToggle.isOn);
     }
 }
