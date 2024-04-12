@@ -19,7 +19,6 @@ public class VideoSettings : MonoBehaviour
         resolutions = Screen.resolutions;
         resolutionDropdown.ClearOptions();
         AddResolutionOptions();
-        resolutionDropdown.RefreshShownValue();
         InitializeSettings();
     }
 
@@ -93,7 +92,7 @@ public class VideoSettings : MonoBehaviour
         int _currentResolutionIndex = 0;
         Resolution _resolution;
         //Filling up Lists
-        for(int i=0;i<resolutions.Length;i++)
+        for(int i=resolutions.Length-1; i>=0;i--)
         {
             _resolution = resolutions[i];
             _option = _resolution.width + " x " + _resolution.height;
@@ -102,15 +101,21 @@ public class VideoSettings : MonoBehaviour
                 _options.Add(_option);
                 _newResolutions.Add(_resolution);
             }
-            if(_resolution.width == Screen.currentResolution.width && _resolution.height == Screen.currentResolution.height)
+        }
+
+    foreach(Resolution resolution in _newResolutions)
+        {
+            if (resolution.width == Screen.currentResolution.width && resolution.height == Screen.currentResolution.height)
             {
-                _currentResolutionIndex = i;
+                _currentResolutionIndex = _newResolutions.IndexOf(resolution);
+                break;
             }
         }
         //Adding options and saving new, shorten Array of resolutions
         resolutionDropdown.AddOptions(_options);
+        resolutionDropdown.SetValueWithoutNotify(_currentResolutionIndex);
+        resolutionDropdown.RefreshShownValue();
         newResolutions = _newResolutions.ToArray();
-        resolutionDropdown.value = _currentResolutionIndex;
     }
 
     private void InitializeSettings()
