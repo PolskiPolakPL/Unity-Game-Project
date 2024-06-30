@@ -14,6 +14,8 @@ public class BarracksScript : MonoBehaviour
 
     public void RecruitUnit(Unit unitSO)
     {
+        if (!playerScript.CanAffordUnit(unitSO))
+            return;
         playerScript.SpendMoney(unitSO.cost);
         GameObject _unitGO = Instantiate(unitSO.unitGO, transform.position, transform.rotation, playerScript.UnitsT);
         NavMeshAgent _unitAI = _unitGO.GetComponent<NavMeshAgent>();

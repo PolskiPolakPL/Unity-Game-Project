@@ -16,3 +16,10 @@ public enum InfluenceState
     NEUTRAL,
     HOSTILE
 }
+
+public enum GameState
+{
+    DEFAULT,
+    PAUSED,
+    FINISHED
+}
