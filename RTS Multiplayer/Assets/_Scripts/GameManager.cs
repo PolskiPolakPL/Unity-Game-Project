@@ -21,13 +21,13 @@ public class GameManager : MonoBehaviour
     }
 
     //RtsGameManager
-    [SerializeField] PlayerScript player1Script;
     public GameState currentGameState;
     [Header("Game Manager Events")]
     public UnityEvent winEvent;
     public UnityEvent defeatEvent;
     public UnityEvent OnGamePaused;
     public UnityEvent OnGameResumed;
+
 
     void Start()
     {
@@ -70,8 +70,7 @@ public class GameManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Time.timeScale = 1;
-            OnGameResumed?.Invoke();
+            ResumeGame();
             return GameState.DEFAULT;
         }
         return GameState.PAUSED;
@@ -82,10 +81,22 @@ public class GameManager : MonoBehaviour
         return GameState.FINISHED;
     }
 
+    public void ResumeGame()
+    {
+        Time.timeScale = 1;
+        SetGameState(GameState.DEFAULT);
+        OnGameResumed?.Invoke();
+    }
+
     //Used for 'Exit' Buttons in 'Pause Menu' and 'Victory/Defeat' Panels
     public void ExitToMainMenu()
     {
         SceneManager.LoadScene("MainMenu Scene");
         Time.timeScale = 1;
+    }
+
+    public void SetGameState(GameState gameState)
+    {
+        currentGameState = gameState;
     }
 }

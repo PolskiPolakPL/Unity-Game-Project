@@ -9,6 +9,7 @@ public class PlayerScript : MonoBehaviour
     public int hp;
     public int money;
     public int income;
+    public float passiveIncomeRate;
     public int ammo;
     public int popCap;
     public int population;
@@ -20,6 +21,7 @@ public class PlayerScript : MonoBehaviour
         hp = Stats.playerHP;
         money = Stats.money;
         income = Stats.passiveIncome;
+        passiveIncomeRate = Stats.passiveIncomeRate;
         ammo = Stats.ammo;
         popCap = Stats.popCap;
         UpdatePopulationCount();
@@ -82,7 +84,7 @@ public class PlayerScript : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(passiveIncomeRate);
             GainMoney(income);
         }
     }

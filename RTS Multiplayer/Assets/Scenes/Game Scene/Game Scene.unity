@@ -822,7 +822,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca22c0ffcab051148896f6c47b2bf3ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player1Script: {fileID: 1635268912}
   currentGameState: 0
   winEvent:
     m_PersistentCalls:
@@ -1561,7 +1560,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.0017089844, y: -29.680054}
+  m_AnchoredPosition: {x: -0.0017089844, y: -29.680176}
   m_SizeDelta: {x: 0.97998047, y: 59}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &399163343
@@ -5183,8 +5182,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: PauseMenuScript, Assembly-CSharp
+      - m_Target: {fileID: 301739965}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: ResumeGame
         m_Mode: 1
         m_Arguments:
@@ -6480,6 +6479,7 @@ MonoBehaviour:
   hp: 0
   money: 0
   income: 0
+  passiveIncomeRate: 0
   ammo: 0
   popCap: 0
   population: 0
@@ -7039,6 +7039,7 @@ MonoBehaviour:
   hp: 0
   money: 0
   income: 0
+  passiveIncomeRate: 0
   ammo: 0
   popCap: 0
   population: 0
