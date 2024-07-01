@@ -15,5 +15,6 @@ MonoBehaviour:
   playerHP: 250
   popCap: 10
   money: 420
-  passiveIncome: 5
+  passiveIncome: 1
+  passiveIncomeRate: 0.2
   ammo: 0

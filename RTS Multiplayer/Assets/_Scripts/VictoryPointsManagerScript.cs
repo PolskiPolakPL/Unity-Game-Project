@@ -8,11 +8,8 @@ public class VictoryPointsManagerScript : MonoBehaviour
     [SerializeField] PlayerScript playerScript;
     [SerializeField] PlayerScript enemyPlayerScript;
     [SerializeField] private int _friendlyPoints, _enemyPoints;
-    public UnityEvent winEvent;
-    public UnityEvent defeatEvent;
     private ObjectiveInfluenceScript[] _objectiveScripts;
     float _timer;
-    private bool _hasGameEnded;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,7 +19,6 @@ public class VictoryPointsManagerScript : MonoBehaviour
             _objectiveScripts[i] = dominationPointsParent.GetChild(i).gameObject.GetComponent<ObjectiveInfluenceScript>();
         }
         _timer = 0;
-        _hasGameEnded = false;
     }
 
     // Update is called once per frame
@@ -68,14 +64,16 @@ public class VictoryPointsManagerScript : MonoBehaviour
         {
             UseEnemyAdvantage();
         }
-        if (!_hasGameEnded)
+        if (GameManager.Instance.currentGameState!=GameState.FINISHED)
         {
             if (enemyPlayerScript.hp <= 0)
             {
+                enemyPlayerScript.hp = 0;
                 HandleVictoryEvent();
             }
             else if (playerScript.hp <= 0)
             {
+                playerScript.hp = 0;
                 HandleDefeatEvent();
             }
         }
@@ -94,14 +92,14 @@ public class VictoryPointsManagerScript : MonoBehaviour
 
     public void HandleVictoryEvent()
     {
-        _hasGameEnded = true;
-        winEvent.Invoke();
         Time.timeScale = 0;
+        GameManager.Instance.currentGameState = GameState.FINISHED;
+        GameManager.Instance.winEvent.Invoke();
     }
     public void HandleDefeatEvent()
     {
-        _hasGameEnded = true;
-        defeatEvent.Invoke();
         Time.timeScale = 0;
+        GameManager.Instance.currentGameState = GameState.FINISHED;
+        GameManager.Instance.defeatEvent.Invoke();
     }
 }

@@ -29,10 +29,7 @@ public class ItemListScript : MonoBehaviour
 
     void BuyUnit(Unit unit)
     {
-        if (GameManagerScript.Instance.isUnitRecruitmentValid(unit))
-        {
-            barrackScript.RecruitUnit(unit);
-        }
+        barrackScript.RecruitUnit(unit);
     }
 
 }

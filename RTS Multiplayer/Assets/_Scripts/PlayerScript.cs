@@ -9,6 +9,7 @@ public class PlayerScript : MonoBehaviour
     public int hp;
     public int money;
     public int income;
+    public float passiveIncomeRate;
     public int ammo;
     public int popCap;
     public int population;
@@ -20,12 +21,13 @@ public class PlayerScript : MonoBehaviour
         hp = Stats.playerHP;
         money = Stats.money;
         income = Stats.passiveIncome;
+        passiveIncomeRate = Stats.passiveIncomeRate;
         ammo = Stats.ammo;
         popCap = Stats.popCap;
         UpdatePopulationCount();
         StartCoroutine(passiveIncomeCoroutine());
     }
-    void Start()
+    private void Start()
     {
         if (UnitsT == null)
             UnitsT = transform.GetChild(0);
@@ -34,6 +36,21 @@ public class PlayerScript : MonoBehaviour
     {
         UpdatePopulationCount();
     }
+    /// <summary>
+    /// Checks if Player can afford a Unit.
+    /// </summary>
+    /// <param name="unitSO">Unit's ScriptableObject</param>
+    /// <returns>
+    /// <c>True</c> if Unit's cost is less or equal to Player's money AND population is lower than population capacity.
+    /// </returns>
+    public bool CanAffordUnit(Unit unitSO)
+    {
+        UpdatePopulationCount();
+        return unitSO.cost <= money && population < popCap;
+    }
+
+
+
     public void UpdatePopulationCount()
     {
         population = UnitsT.childCount;
@@ -67,7 +84,7 @@ public class PlayerScript : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(passiveIncomeRate);
             GainMoney(income);
         }
     }
