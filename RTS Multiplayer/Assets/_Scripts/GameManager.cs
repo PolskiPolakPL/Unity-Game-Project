@@ -22,6 +22,8 @@ public class GameManager : MonoBehaviour
 
     //RtsGameManager
     public GameState currentGameState;
+    //temporary fix for 'DropRewardScript'
+    public PlayerScript playerScript;
     [Header("Game Manager Events")]
     public UnityEvent winEvent;
     public UnityEvent defeatEvent;

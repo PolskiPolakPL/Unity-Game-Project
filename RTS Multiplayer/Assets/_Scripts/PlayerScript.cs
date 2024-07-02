@@ -3,7 +3,7 @@ using System.Collections;
 
 public class PlayerScript : MonoBehaviour
 {
-    public PlayerStats Stats;
+    [SerializeField] PlayerStats Stats;
     public Transform UnitsT;
     public int maxHp { get; private set; }
     public int hp;

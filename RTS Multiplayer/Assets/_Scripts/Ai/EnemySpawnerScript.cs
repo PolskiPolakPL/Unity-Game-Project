@@ -7,18 +7,21 @@ using UnityEngine.AI;
 struct Squad
 {
     public GameObject unit;
-    public int squadSize;
+    public int minSquadSize;
+    public int maxSquadSize;
     public float spawnCooldown;
-    public Squad(GameObject unit, int squadSize, float spawnCooldown)
+    public Squad(GameObject unit, int minSquadSize, int maxSquadSize, float spawnCooldown)
     {
         this.unit = unit;
-        this.squadSize = squadSize;
+        this.minSquadSize = minSquadSize;
+        this.maxSquadSize = maxSquadSize;
         this.spawnCooldown = spawnCooldown;
     }
 }
 
 public class EnemySpawnerScript : MonoBehaviour
 {
+    [SerializeField] PlayerScript playerScript;
     [SerializeField] List<Squad> squadList = new List<Squad>();
     [SerializeField] Transform EnemyUnits;
     [SerializeField] Transform InfluencePoints;
@@ -29,7 +32,7 @@ public class EnemySpawnerScript : MonoBehaviour
     NavMeshAgent agent;
     ObjectiveInfluenceScript objectiveScript;
 
-    // Start is called before the first frame update
+    //Start is called before the first frame update
     void Start()
     {
         try
@@ -54,7 +57,7 @@ public class EnemySpawnerScript : MonoBehaviour
         }
         else
         {
-            if(EnemyUnits.childCount < 10)
+            if(EnemyUnits.childCount < playerScript.popCap)
             {
                 ScanTargets();
                 currentCooldown = SpawnRandomSquad();
@@ -68,6 +71,15 @@ public class EnemySpawnerScript : MonoBehaviour
         if (targetsList != null && targetsList.Count > 0)
         {
             return targetsList[UnityEngine.Random.Range(0, targetsList.Count)].position;
+        }
+        else if (targetsList.Count == 0)
+        {
+            List<Vector3> targets = new List<Vector3>();
+            foreach(Transform influencePoint in InfluencePoints)
+            {
+                targets.Add(transform.position);
+            }
+            return targets[UnityEngine.Random.Range(0, targets.Count)];
         }
         else
         {
@@ -93,12 +105,13 @@ public class EnemySpawnerScript : MonoBehaviour
         squadIndex = UnityEngine.Random.Range(0, squadList.Count);
         Squad currentSquad = squadList[squadIndex];
         Vector3 squadTarget = SelectRandomTarget();
-        for(int i = 0; i < currentSquad.squadSize; i++)
+        int squadSize = OverflowPopulatiuon(UnityEngine.Random.Range(currentSquad.minSquadSize, currentSquad.maxSquadSize+1));
+        for(int i = 0; i < squadSize; i++)
         {
             GameObject unit = SpawnSquadMember(currentSquad.unit);
             SetSquadUnitsDestination(unit, squadTarget);
         }
-        return currentSquad.spawnCooldown;
+        return currentSquad.spawnCooldown*squadSize;
     }
     void ScanTargets()
     {
@@ -114,5 +127,15 @@ public class EnemySpawnerScript : MonoBehaviour
                 targetsList.Remove(target);
             }
         }
+    }
+    int CalculateRemaningPopulation()
+    {
+        return playerScript.popCap - playerScript.population;
+    }
+
+    int OverflowPopulatiuon(int newUnitsCount)
+    {
+        int remaningPopulation = CalculateRemaningPopulation();
+        return Math.Min(remaningPopulation, newUnitsCount);
     }
 }
