@@ -7,5 +7,6 @@ public class PlayerStats : ScriptableObject
     public int popCap;
     public int money;
     public int passiveIncome;
+    public float passiveIncomeRate;
     public int ammo;
 }

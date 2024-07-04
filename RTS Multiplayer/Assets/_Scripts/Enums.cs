@@ -6,13 +6,26 @@ public enum Selection
 }
 public enum UnitType
 {
-    Conscript,
-    MachineGunner,
-    Sniper
+    CONSCRIPT,
+    HEAVY,
+    SNIPER
 }
 public enum InfluenceState
 {
     FRIENDLY,
     NEUTRAL,
     HOSTILE
+}
+
+public enum GameState
+{
+    DEFAULT,
+    PAUSED,
+    FINISHED
+}
+
+public enum UnitStatus
+{
+    AVAILABLE,
+    BUISY
 }

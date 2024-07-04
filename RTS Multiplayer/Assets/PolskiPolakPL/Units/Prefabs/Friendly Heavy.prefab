@@ -2126,6 +2126,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unit: {fileID: 11400000, guid: 291576e2ab412944ba96823e535a6229, type: 2}
   currentHealth: 0
+  unitType: 1
   healthBar: {fileID: 7286056411950480928}
 --- !u!136 &1084276797071151540
 CapsuleCollider:

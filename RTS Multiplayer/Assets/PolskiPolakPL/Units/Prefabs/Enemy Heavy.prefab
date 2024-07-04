@@ -412,6 +412,7 @@ GameObject:
   - component: {fileID: 2026640201444129747}
   - component: {fileID: 3758059456027133630}
   - component: {fileID: 8046423858982729237}
+  - component: {fileID: 5462132812938295576}
   m_Layer: 6
   m_Name: Enemy Heavy
   m_TagString: Untagged
@@ -495,6 +496,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unit: {fileID: 11400000, guid: 291576e2ab412944ba96823e535a6229, type: 2}
   currentHealth: 0
+  unitType: 1
   healthBar: {fileID: 2237246043084229023}
 --- !u!114 &539980155059109810
 MonoBehaviour:
@@ -639,6 +641,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &5462132812938295576
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8542795991681865033}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d923a138ed73bb4a883cc432565a005, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rewardMultiplier: 0.8
 --- !u!1001 &6658353268316548552
 PrefabInstance:
   m_ObjectHideFlags: 0
