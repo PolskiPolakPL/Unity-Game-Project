@@ -231,6 +231,7 @@ GameObject:
   - component: {fileID: 3761388763197200258}
   - component: {fileID: 2154193136378778585}
   - component: {fileID: -5918023257558360182}
+  - component: {fileID: -2804226412780192851}
   m_Layer: 6
   m_Name: Enemy Conscript
   m_TagString: Untagged
@@ -314,6 +315,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unit: {fileID: 11400000, guid: a312301906b17074a81c05660afb7135, type: 2}
   currentHealth: 0
+  unitType: 0
   healthBar: {fileID: 7452829474853981669}
 --- !u!114 &8637619191160680913
 MonoBehaviour:
@@ -458,6 +460,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-2804226412780192851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6021335917539859180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d923a138ed73bb4a883cc432565a005, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rewardMultiplier: 0.8
 --- !u!1 &7126861329484093573
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,6 +5,7 @@ using UnityEngine;
 public class Unit : ScriptableObject
 {
     public string unitName;
+    public UnitType unitType;
     public GameObject unitGO;
     public AudioClip fireSound;
     public int health;

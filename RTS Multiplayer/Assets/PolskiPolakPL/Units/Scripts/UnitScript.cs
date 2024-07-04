@@ -7,21 +7,25 @@ public class UnitScript : MonoBehaviour
 {
     public Unit unit;
     public int currentHealth;
+    public UnitType unitType;
     [SerializeField] FloatingBarScript healthBar;
 
     NavMeshAgent agent;
     void Start()
     {
+        //AgentAI
         agent = gameObject.GetComponent<NavMeshAgent>();
         AiSensor aiSensor = agent.GetComponent<AiSensor>();
         agent.speed = unit.speed;
         aiSensor.viewRange = unit.attackRange;
-        healthBar = GetComponentInChildren<FloatingBarScript>();
         agent.stoppingDistance = 0.5f;
         //Health
+        healthBar = GetComponentInChildren<FloatingBarScript>();
         currentHealth = unit.health;
         healthBar.UpdateBarValue(currentHealth, unit.health);
         healthBar.gameObject.SetActive(false);
+        //Other
+        unitType = unit.unitType;
 
         //For Friendly Units Only
         if(gameObject.layer==7)
