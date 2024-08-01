@@ -26,6 +26,6 @@ public enum GameState
 
 public enum UnitStatus
 {
-    AVAILABLE,
-    BUISY
+    IDLE,
+    FIGHTING
 }
