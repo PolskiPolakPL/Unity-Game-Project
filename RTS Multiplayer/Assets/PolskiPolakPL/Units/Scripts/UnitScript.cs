@@ -28,7 +28,7 @@ public class UnitScript : MonoBehaviour
         unitType = unit.unitType;
 
         //For Friendly Units Only
-        if(gameObject.layer==7)
+        if(UnitSelection.Instance!=null && gameObject.layer==7)
             UnitSelection.Instance.unitsList.Add(this.gameObject);
     }
 
@@ -44,6 +44,8 @@ public class UnitScript : MonoBehaviour
 
     private void OnDestroy()
     {
+        if (UnitSelection.Instance == null)
+            return;
         if (UnitSelection.Instance.unitsList.Contains(this.gameObject))
             UnitSelection.Instance.unitsList.Remove(this.gameObject);
         if (UnitSelection.Instance.unitsSelected.Contains(this.gameObject))
