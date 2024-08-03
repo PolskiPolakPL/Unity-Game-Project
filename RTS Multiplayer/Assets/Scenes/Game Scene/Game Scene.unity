@@ -36359,7 +36359,7 @@ MonoBehaviour:
   - unit: {fileID: 8061641752909016173, guid: 5151ae56a89ef7042bac46059f1a3f5c, type: 3}
     minSquadSize: 1
     maxSquadSize: 2
-    spawnCooldown: 7
+    spawnCooldown: 12
   - unit: {fileID: 8542795991681865033, guid: 974db7c1a75c86543bf0ec9d24e855b0, type: 3}
     minSquadSize: 1
     maxSquadSize: 2

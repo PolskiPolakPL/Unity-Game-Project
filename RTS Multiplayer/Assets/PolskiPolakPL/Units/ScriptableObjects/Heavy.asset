@@ -16,10 +16,10 @@ MonoBehaviour:
   unitType: 1
   unitGO: {fileID: 7816710721940558339, guid: b43e911028851a84098b188148b867ae, type: 3}
   fireSound: {fileID: 8300000, guid: bc98597adc56cd749a662b3f333bf506, type: 3}
-  health: 210
-  cost: 120
+  health: 260
+  cost: 140
   speed: 2
   attackRange: 13
   attackSpeed: 0.1
-  attackDamage: 15
-  accuracy: 75
+  attackDamage: 20
+  accuracy: 76

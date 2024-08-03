@@ -1,7 +1,7 @@
 using UnityEngine;
 using PolskiPolakPL.Utils.Timer;
 
-public class Fight : MonoBehaviour
+public class FightScript : MonoBehaviour
 {
     Unit unit;
     UnitScript unitScript, enemyUnitScript;
