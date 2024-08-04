@@ -9,6 +9,7 @@ public class PickableObjectsScript : MonoBehaviour
     [SerializeField] LayerMask collisionLayers;
     [Tooltip("Maximum distance that catched object can be from camera.")]
     [SerializeField] float maxDistance;
+    [SerializeField] float rotationSpeed;
 
     private Transform pickableObjT;
     private Ray ray;
@@ -36,6 +37,10 @@ public class PickableObjectsScript : MonoBehaviour
         {
             ray = cam.ScreenPointToRay(Input.mousePosition);
             MoveObject();
+            if (Input.GetKey(KeyCode.E))
+                RotateObject(rotationSpeed);
+            if (Input.GetKey(KeyCode.Q))
+                RotateObject(-rotationSpeed);
         }
         if(Input.GetMouseButtonUp(0))
         {
@@ -59,5 +64,10 @@ public class PickableObjectsScript : MonoBehaviour
             pickableObjT.position = hit.point;
         else
             pickableObjT.position = cam.transform.position + cam.transform.forward * maxDistance;
+    }
+
+    void RotateObject(float rotationSpeed)
+    {
+        pickableObjT.Rotate(new Vector3(0,rotationSpeed,0));
     }
 }
