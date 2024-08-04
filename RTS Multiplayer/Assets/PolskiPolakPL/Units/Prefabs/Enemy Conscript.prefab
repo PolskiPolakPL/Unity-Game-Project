@@ -334,7 +334,7 @@ MonoBehaviour:
     m_Bits: 128
   blockLayers:
     serializedVersion: 2
-    m_Bits: 1537
+    m_Bits: 521
   scanFrequency: 5
   viewRange: 0
   eyeHeight: 1.7

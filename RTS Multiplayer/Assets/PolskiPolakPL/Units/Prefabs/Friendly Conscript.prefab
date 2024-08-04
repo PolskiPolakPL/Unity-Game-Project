@@ -2018,6 +2018,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unit: {fileID: 11400000, guid: a312301906b17074a81c05660afb7135, type: 2}
   currentHealth: 0
+  unitType: 0
   healthBar: {fileID: 3926729603645397055}
 --- !u!136 &8853358577420109214
 CapsuleCollider:
@@ -2059,7 +2060,7 @@ MonoBehaviour:
     m_Bits: 64
   blockLayers:
     serializedVersion: 2
-    m_Bits: 1537
+    m_Bits: 521
   scanFrequency: 5
   viewRange: 10
   eyeHeight: 1.8
