@@ -3,7 +3,7 @@ using UnityEngine;
 public class ObjectiveInfluenceScript : MonoBehaviour
 {
     [SerializeField] float flagHeight = 10f;
-    [SerializeField] GameObject flag, selectionCircle;
+    [SerializeField] GameObject flag, circle;
 
     [Header("Influance Materials")]
     [SerializeField] Material friendlyMaterial;
@@ -22,18 +22,14 @@ public class ObjectiveInfluenceScript : MonoBehaviour
     float drain = 0f, newDrain=0;
     Material currentMaterial;
 
-    private void Awake()
-    {
-        selectionCircle.transform.localScale = new Vector3(influenceRadious, 1, influenceRadious);
-    }
-
     private void Start()
     {
+        circle.GetComponent<CircleGenerator>().Rradious = influenceRadious;
         flag.transform.position += new Vector3(0, flagHeight, 0);
         currentMaterial = neutralMaterial;
         influenceState = InfluenceState.NEUTRAL;
         flag.GetComponent<Renderer>().material = currentMaterial;
-        selectionCircle.GetComponent<Renderer>().material = currentMaterial;
+        circle.GetComponent<Renderer>().material = currentMaterial;
     }
 
     private void Update()
@@ -102,7 +98,7 @@ public class ObjectiveInfluenceScript : MonoBehaviour
             influenceState = InfluenceState.HOSTILE;
             currentMaterial = hostileMaterial;
         }
-        selectionCircle.GetComponent<Renderer>().material = currentMaterial;
+        circle.GetComponent<Renderer>().material = currentMaterial;
         flag.GetComponent<Renderer>().material = currentMaterial;
         flag.transform.localPosition = new Vector3(-1,Mathf.Abs((influence / maxInfuence) * flagHeight), 0);
     }
