@@ -9,6 +9,7 @@ public class UnitScript : MonoBehaviour
     public int currentHealth;
     public UnitType unitType;
     [SerializeField] FloatingBarScript healthBar;
+    [SerializeField] GameObject rangeCircle;
 
     NavMeshAgent agent;
     void Start()
@@ -26,9 +27,10 @@ public class UnitScript : MonoBehaviour
         healthBar.gameObject.SetActive(false);
         //Other
         unitType = unit.unitType;
+        rangeCircle.GetComponent<CircleGenerator>().Rradious = unit.attackRange;
 
         //For Friendly Units Only
-        if(UnitSelection.Instance!=null && gameObject.layer==7)
+        if (UnitSelection.Instance!=null && gameObject.layer==7)
             UnitSelection.Instance.unitsList.Add(this.gameObject);
     }
 
@@ -68,5 +70,14 @@ public class UnitScript : MonoBehaviour
     void KillYourself()
     {
         Destroy(gameObject);
+    }
+
+    private void OnMouseEnter()
+    {
+        rangeCircle.SetActive(true);
+    }
+    private void OnMouseExit()
+    {
+        rangeCircle.SetActive(false);
     }
 }
