@@ -93,6 +93,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5182252461801631257}
   - component: {fileID: 5022903742857055291}
+  - component: {fileID: 553423383919934491}
   m_Layer: 0
   m_Name: Objective
   m_TagString: Objective
@@ -143,6 +144,29 @@ MonoBehaviour:
   drainAmount: 5
   friendlyUnits: {fileID: 0}
   enemyUnits: {fileID: 0}
+  sensor: {fileID: 553423383919934491}
+--- !u!114 &553423383919934491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1870905664259063319}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6d3c6e019dbf464fba7238b6095965e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scanLayers:
+    serializedVersion: 2
+    m_Bits: 192
+  blockLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  scanFrequency: 10
+  viewRange: 0
+  eyeHeight: 1
+  visibleObjects: []
 --- !u!1 &4498629454413732265
 GameObject:
   m_ObjectHideFlags: 0

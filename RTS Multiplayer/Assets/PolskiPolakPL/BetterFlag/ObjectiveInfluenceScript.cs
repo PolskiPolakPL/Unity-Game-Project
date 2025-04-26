@@ -16,15 +16,15 @@ public class ObjectiveInfluenceScript : MonoBehaviour
     public InfluenceState influenceState;
     public float influence = 0f;
     [SerializeField] float drainAmount = 10f;
-    [SerializeField] Transform friendlyUnits;
-    [SerializeField] Transform enemyUnits;
 
+    [SerializeField] AiSensor sensor;
     float drain = 0f, newDrain=0;
     Material currentMaterial;
 
     private void Start()
     {
         circle.GetComponent<CircleGenerator>().Rradious = influenceRadious;
+        sensor.viewRange = influenceRadious;
         flag.transform.position += new Vector3(0, flagHeight, 0);
         currentMaterial = neutralMaterial;
         influenceState = InfluenceState.NEUTRAL;
@@ -36,20 +36,13 @@ public class ObjectiveInfluenceScript : MonoBehaviour
     {
         influence = Mathf.Clamp(influence - drain, -maxInfuence, maxInfuence);
         newDrain = 0;
-        foreach(Transform enemy in enemyUnits)//Replace with SphereCollider & OnCollisionEnter ?
+        try
         {
-            if(Vector3.Distance(transform.position, enemy.position) <= influenceRadious)
-            {
-                newDrain += drainAmount;
-            }
+            newDrain += CountUnits(LayerMask.NameToLayer("Hostile")) * drainAmount;
+            newDrain -= CountUnits(LayerMask.NameToLayer("Friendly")) * drainAmount;
         }
-        foreach (Transform friendly in friendlyUnits)
-        {
-            if (Vector3.Distance(transform.position, friendly.position) <= influenceRadious)
-            {
-                newDrain -= drainAmount;
-            }
-        }
+        catch (MissingReferenceException) { }
+        
         if(newDrain == 0)
         {
             switch (influenceState)
@@ -79,6 +72,17 @@ public class ObjectiveInfluenceScript : MonoBehaviour
         }
         drain = newDrain * Time.deltaTime;
         SetFlag();
+    }
+
+    int CountUnits(LayerMask targetLayer)
+    {
+        int count = 0;
+        foreach(GameObject unit in sensor.visibleObjects)
+        {
+            if(unit.layer == targetLayer)
+                count++;
+        }
+        return count;
     }
 
     void SetFlag()
