@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.Events;
 
 public class VictoryPointsManagerScript : MonoBehaviour
 {
@@ -7,7 +6,8 @@ public class VictoryPointsManagerScript : MonoBehaviour
     [SerializeField] int advantageMultiplayer = 1;
     [SerializeField] PlayerScript playerScript;
     [SerializeField] PlayerScript enemyPlayerScript;
-    [SerializeField] private int _friendlyPoints, _enemyPoints;
+    [SerializeField] public int FriendlyPoints { get; private set; }
+    [SerializeField] public int EnemyPoints { get; private set; }
     private ObjectiveInfluenceScript[] _objectiveScripts;
     float _timer;
     // Start is called before the first frame update
@@ -39,28 +39,28 @@ public class VictoryPointsManagerScript : MonoBehaviour
 
     void AssignPoints()
     {
-        _friendlyPoints = 0;
-        _enemyPoints = 0;
+        FriendlyPoints = 0;
+        EnemyPoints = 0;
         foreach(ObjectiveInfluenceScript objectiveScript in _objectiveScripts)
         {
             if(objectiveScript.influenceState == InfluenceState.FRIENDLY)
             {
-                _friendlyPoints++;
+                FriendlyPoints++;
             }
             else if(objectiveScript.influenceState == InfluenceState.HOSTILE)
             {
-                _enemyPoints++;
+                EnemyPoints++;
             }
         }
     }
 
     void CalculateAdvantage()
     {
-        if (_friendlyPoints > _enemyPoints)
+        if (FriendlyPoints > EnemyPoints)
         {
             UsePlayerAdvantage();
         }
-        else if (_enemyPoints > _friendlyPoints)
+        else if (EnemyPoints > FriendlyPoints)
         {
             UseEnemyAdvantage();
         }
@@ -81,12 +81,12 @@ public class VictoryPointsManagerScript : MonoBehaviour
 
     void UsePlayerAdvantage()
     {
-        int advantage = (_friendlyPoints - _enemyPoints)*advantageMultiplayer;
+        int advantage = (FriendlyPoints - EnemyPoints)*advantageMultiplayer;
         enemyPlayerScript.LooseHealth(advantage);
     }
     void UseEnemyAdvantage()
     {
-        int advantage = (_enemyPoints - _friendlyPoints) * advantageMultiplayer;
+        int advantage = (EnemyPoints - FriendlyPoints) * advantageMultiplayer;
         playerScript.LooseHealth(advantage);
     }
 

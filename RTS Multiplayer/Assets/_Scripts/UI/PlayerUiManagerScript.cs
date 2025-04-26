@@ -19,6 +19,8 @@ public class PlayerUiManagerScript : MonoBehaviour
     [Header("Resources")]
     [SerializeField] TMP_Text moneyTMP;
     [SerializeField] TMP_Text populationTMP;
+    [SerializeField] TMP_Text friendlyFlagTMP;
+    [SerializeField] TMP_Text enemyFlagTMP;
 
     // Start is called before the first frame update
     void Start()
@@ -40,6 +42,7 @@ public class PlayerUiManagerScript : MonoBehaviour
         if (enemyScript != null)
             UpdateEnemyPlayerHP();
         UpdatePlayerHP();
+        UpdateFlags();
     }
     public void UpdatePlayerHP()
     {
@@ -60,9 +63,12 @@ public class PlayerUiManagerScript : MonoBehaviour
         if(moneyTMP != null)
             moneyTMP.text = $"{playerScript.money}$";
     }
-    public void UpdateAmmo()
+    public void UpdateFlags()
     {
-
+        if (friendlyFlagTMP)
+            friendlyFlagTMP.text = GameManager.Instance.gameObject.GetComponent<VictoryPointsManagerScript>().FriendlyPoints.ToString();
+        if(enemyFlagTMP)
+            enemyFlagTMP.text = GameManager.Instance.gameObject.GetComponent<VictoryPointsManagerScript>().EnemyPoints.ToString();
     }
     public void UpdatePopulation()
     {
