@@ -11,7 +11,7 @@ public class ObjectiveInfluenceScript : MonoBehaviour
     [SerializeField] Material hostileMaterial;
 
     [Header("Influance Statistics")]
-    [SerializeField] float influenceRadious = 5;
+    float influenceRadious = 5;
     [SerializeField] float maxInfuence = 100f;
     public InfluenceState influenceState;
     public float influence = 0f;
@@ -23,7 +23,7 @@ public class ObjectiveInfluenceScript : MonoBehaviour
 
     private void Start()
     {
-        circle.GetComponent<CircleGenerator>().Rradious = influenceRadious;
+        influenceRadious = circle.GetComponent<CircleGenerator>().Rradious;
         sensor.viewRange = influenceRadious;
         flag.transform.position += new Vector3(0, flagHeight, 0);
         currentMaterial = neutralMaterial;
