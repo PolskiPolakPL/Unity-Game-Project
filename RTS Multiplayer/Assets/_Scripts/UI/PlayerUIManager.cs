@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class PlayerUiManagerScript : MonoBehaviour
+public class PlayerUIManager : MonoBehaviour
 {
     //UI declarations
     [SerializeField] PlayerScript playerScript;
@@ -28,9 +28,9 @@ public class PlayerUiManagerScript : MonoBehaviour
         UpdatePopulation();
         UpdateMoney();
         UpdatePlayerHP();
-        if(enemyScript!=null)
+        if (enemyScript != null)
             UpdateEnemyPlayerHP();
-        if(timer!=null)
+        if (timer != null)
             StartCoroutine(TimerCoroutine());
     }
 
@@ -46,65 +46,65 @@ public class PlayerUiManagerScript : MonoBehaviour
     }
     public void UpdatePlayerHP()
     {
-        if(playerHpBar != null)
+        if (playerHpBar != null)
             playerHpBar.value = (float)playerScript.hp / (float)playerScript.maxHp;
-        if(enemyHpTMP != null)
+        if (enemyHpTMP != null)
             playerHpTMP.text = playerScript.hp.ToString();
     }
     public void UpdateEnemyPlayerHP()
     {
-        if(enemyHpBar != null)
+        if (enemyHpBar != null)
             enemyHpBar.value = (float)enemyScript.hp / (float)enemyScript.maxHp;
-        if(moneyTMP != null)
+        if (moneyTMP != null)
             enemyHpTMP.text = enemyScript.hp.ToString();
     }
     public void UpdateMoney()
     {
-        if(moneyTMP != null)
+        if (moneyTMP != null)
             moneyTMP.text = $"{playerScript.money}$";
     }
     public void UpdateFlags()
     {
         if (friendlyFlagTMP)
             friendlyFlagTMP.text = GameManager.Instance.gameObject.GetComponent<VictoryPointsManagerScript>().FriendlyPoints.ToString();
-        if(enemyFlagTMP)
+        if (enemyFlagTMP)
             enemyFlagTMP.text = GameManager.Instance.gameObject.GetComponent<VictoryPointsManagerScript>().EnemyPoints.ToString();
     }
     public void UpdatePopulation()
     {
-        if(populationTMP != null)
+        if (populationTMP != null)
             populationTMP.text = $"{playerScript.population}/{playerScript.popCap}";
     }
     IEnumerator TimerCoroutine()
     {
-        string min="00", sec="00";
+        string min = "00", sec = "00";
         while (true)
         {
             yield return new WaitForSeconds(1);
             _seconds++;
-            if(_seconds > 59)
+            if (_seconds > 59)
             {
                 _minutes++;
                 _seconds = 0;
             }
             if (_seconds < 10)
             {
-                sec="0"+_seconds.ToString();
+                sec = "0" + _seconds.ToString();
             }
             else
             {
                 sec = _seconds.ToString();
             }
-            if(_minutes < 10)
+            if (_minutes < 10)
             {
-                min="0"+_minutes.ToString();
+                min = "0" + _minutes.ToString();
             }
             else
             {
-                min=_minutes.ToString();
+                min = _minutes.ToString();
             }
             timer.text = min + ":" + sec;
         }
-        
+
     }
 }
