@@ -17,8 +17,8 @@ MonoBehaviour:
   unitGO: {fileID: 7679600218647525199, guid: fb682eea40a7b8f4f9a6a3633b28fa2a, type: 3}
   fireSound: {fileID: 8300000, guid: 6ce002f41370a994382545f0c2339c2e, type: 3}
   health: 80
-  cost: 210
-  speed: 2.5
+  cost: 750
+  speed: 5
   attackRange: 20
   attackSpeed: 3
   attackDamage: 160

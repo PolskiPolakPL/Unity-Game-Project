@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fec349ec765a5af4bae70e8e83046457, type: 3}
   m_Name: PlayerStats
   m_EditorClassIdentifier: 
-  playerHP: 250
+  playerHP: 500
   popCap: 10
-  money: 420
-  passiveIncome: 1
-  passiveIncomeRate: 0.2
+  money: 750
+  passiveIncome: 5
+  passiveIncomeRate: 1
   ammo: 0

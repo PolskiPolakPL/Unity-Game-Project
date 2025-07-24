@@ -564,7 +564,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 50
+  MaxDistance: 100
   Pan2D: 0
   rolloffMode: 1
   BypassEffects: 0
@@ -651,7 +651,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d923a138ed73bb4a883cc432565a005, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rewardMultiplier: 0.8
+  rewardMultiplier: 0.6
 --- !u!1001 &5290838138101687536
 PrefabInstance:
   m_ObjectHideFlags: 0
