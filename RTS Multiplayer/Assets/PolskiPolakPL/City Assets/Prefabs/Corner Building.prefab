@@ -6134,7 +6134,7 @@ GameObject:
   - component: {fileID: 6778391459032385031}
   - component: {fileID: 3753966787209924348}
   - component: {fileID: 106172094327150115}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Corner Building roof (long)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8973,7 +8973,7 @@ GameObject:
   - component: {fileID: 9185289247404703461}
   - component: {fileID: 7151319645925541769}
   - component: {fileID: 1763000583728842957}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Corner Building walls (long)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

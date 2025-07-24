@@ -2138,6 +2138,7 @@ GameObject:
   - component: {fileID: 7957013495989377836}
   - component: {fileID: 4954312043987608636}
   - component: {fileID: -8961029316325055449}
+  - component: {fileID: 640652455215123453}
   m_Layer: 7
   m_Name: Friendly Conscript
   m_TagString: Infantry
@@ -2162,6 +2163,7 @@ Transform:
   - {fileID: 2118416162473454688}
   - {fileID: 1947614101144299189}
   - {fileID: 5821236338701761040}
+  - {fileID: 5608981610619585469}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!195 &5201847758187298010
@@ -2369,6 +2371,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &640652455215123453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8754418370629131466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc9d50fad00cf444680776be3ed3df74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minimapPrefab: {fileID: 3182562807447753475}
 --- !u!1 &8807610074056549345
 GameObject:
   m_ObjectHideFlags: 0
@@ -2781,6 +2796,89 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 869925101eb433a44a262c1c87fd449a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1001 &5152294677033595388
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 6374164077988344406}
+    m_Modifications:
+    - target: {fileID: 745270676630598209, guid: e3ab4744a3b017743bd6d95ecdfb19e7, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 745270676630598209, guid: e3ab4744a3b017743bd6d95ecdfb19e7, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 745270676630598209, guid: e3ab4744a3b017743bd6d95ecdfb19e7, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 745270676630598209, guid: e3ab4744a3b017743bd6d95ecdfb19e7, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 745270676630598209, guid: e3ab4744a3b017743bd6d95ecdfb19e7, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 745270676630598209, guid: e3ab4744a3b017743bd6d95ecdfb19e7, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 745270676630598209, guid: e3ab4744a3b017743bd6d95ecdfb19e7, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 745270676630598209, guid: e3ab4744a3b017743bd6d95ecdfb19e7, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 745270676630598209, guid: e3ab4744a3b017743bd6d95ecdfb19e7, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 745270676630598209, guid: e3ab4744a3b017743bd6d95ecdfb19e7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 745270676630598209, guid: e3ab4744a3b017743bd6d95ecdfb19e7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 745270676630598209, guid: e3ab4744a3b017743bd6d95ecdfb19e7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2654539922740574931, guid: e3ab4744a3b017743bd6d95ecdfb19e7, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7758044880939655935, guid: e3ab4744a3b017743bd6d95ecdfb19e7, type: 3}
+      propertyPath: m_Name
+      value: Friendly Minimap Marker
+      objectReference: {fileID: 0}
+    - target: {fileID: 7758044880939655935, guid: e3ab4744a3b017743bd6d95ecdfb19e7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e3ab4744a3b017743bd6d95ecdfb19e7, type: 3}
+--- !u!1 &3182562807447753475 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7758044880939655935, guid: e3ab4744a3b017743bd6d95ecdfb19e7, type: 3}
+  m_PrefabInstance: {fileID: 5152294677033595388}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &5608981610619585469 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 745270676630598209, guid: e3ab4744a3b017743bd6d95ecdfb19e7, type: 3}
+  m_PrefabInstance: {fileID: 5152294677033595388}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6654463901843599627
 PrefabInstance:
   m_ObjectHideFlags: 0

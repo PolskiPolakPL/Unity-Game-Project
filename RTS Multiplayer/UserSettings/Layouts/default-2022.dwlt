@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1904
     height: 981
   m_ShowMode: 4
-  m_Title: Scene
+  m_Title: Game
   m_RootView: {fileID: 8}
   m_MinSize: {x: 875, y: 321}
   m_MaxSize: {x: 10000, y: 10000}
@@ -74,7 +74,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 50}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 56
+  controlID: 43
   draggingID: 0
 --- !u!114 &4
 MonoBehaviour:
@@ -127,7 +127,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 55
+  controlID: 42
   draggingID: 0
 --- !u!114 &6
 MonoBehaviour:
@@ -148,8 +148,8 @@ MonoBehaviour:
     y: 0
     width: 392
     height: 931
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 276, y: 71}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 19}
   m_Panes:
   - {fileID: 19}
@@ -279,7 +279,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 54
+  controlID: 41
   draggingID: 0
 --- !u!114 &12
 MonoBehaviour:
@@ -485,9 +485,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
-      m_LastClickedID: 0
-      m_ExpandedIDs: 0479fbffb657fdffbaa7fdff2efbffff7a6900001e6a0000227100003a71000006730000b07e00004c800000d6820000c2870000c6870000588a00003e8c00005292000056920000be9b000046a10000c46a0a00ee6a0a00786b0a00f26b0a003e6d0a00
+      m_SelectedIDs: 8ca40d00
+      m_LastClickedID: 894092
+      m_ExpandedIDs: 4c05f3ff6a3bf5fffa5ff5ff3cd2f5ffc8d5f5ffaae3f5ff4aeff5ffca4ff6ff9454f6ff9854f6ff9a54f6ff4c58f6ff7801f7ff720ef7ff820ef7ff920ef7ffa20ef7ff8619f7ff741bf7ff8e1ef7ff1615f8ffeafbfdff2efbffffb2850100c885010048870100588701006a88010018b40b0024b40b0028b40b0098b40b00a0b40b00eab40b0000b50b0022b50b0040b50b0064b50b007aba0b00f6a20d000ca30d0040a30d0088a30d008ca40d009ca40d00
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -835,7 +835,7 @@ MonoBehaviour:
       floating: 0
       collapsed: 0
       displayed: 1
-      snapOffset: {x: 48, y: 48}
+      snapOffset: {x: 48, y: 36}
       snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
       id: UnityEditor.SceneViewCameraOverlay
@@ -849,14 +849,14 @@ MonoBehaviour:
   m_OverrideSceneCullingMask: 6917529027641081856
   m_SceneIsLit: 1
   m_SceneLighting: 1
-  m_2DMode: 0
+  m_2DMode: 1
   m_isRotationLocked: 0
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -58.686928, y: 127.883736, z: 106.101395}
+    m_Target: {x: 371.06628, y: 146.44026, z: 178.94026}
     speed: 2
-    m_Value: {x: -58.686928, y: 127.883736, z: 106.101395}
+    m_Value: {x: 371.06628, y: 146.44026, z: 178.94026}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -884,17 +884,17 @@ MonoBehaviour:
       m_Size: {x: 0, y: 0}
     yGrid:
       m_Fade:
-        m_Target: 1
+        m_Target: 0
         speed: 2
-        m_Value: 1
+        m_Value: 0
       m_Color: {r: 0.5, g: 0.5, b: 0.5, a: 0.4}
       m_Pivot: {x: 0, y: 0, z: 0}
       m_Size: {x: 1, y: 1}
     zGrid:
       m_Fade:
-        m_Target: 0
+        m_Target: 1
         speed: 2
-        m_Value: 0
+        m_Value: 1
       m_Color: {r: 0.5, g: 0.5, b: 0.5, a: 0.4}
       m_Pivot: {x: 0, y: 0, z: 0}
       m_Size: {x: 1, y: 1}
@@ -902,17 +902,17 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.13938247, y: 0.85894454, z: -0.31832534, w: 0.37619007}
+    m_Target: {x: 0, y: 0, z: 0, w: 1}
     speed: 2
-    m_Value: {x: 0.13976417, y: 0.8582609, z: -0.3166087, w: 0.37896332}
+    m_Value: {x: 0, y: 0, z: 0, w: -1}
   m_Size:
-    m_Target: 0.8660254
+    m_Target: 230.8036
     speed: 2
-    m_Value: 0.8660254
+    m_Value: 230.8036
   m_Ortho:
-    m_Target: 0
+    m_Target: 1
     speed: 2
-    m_Value: 0
+    m_Value: 1
   m_CameraSettings:
     m_Speed: 1.0005001
     m_SpeedNormalized: 0.50000006
@@ -926,7 +926,7 @@ MonoBehaviour:
     m_FarClip: 10000
     m_DynamicClip: 1
     m_OcclusionCulling: 0
-  m_LastSceneViewRotation: {x: 0.22086959, y: 0.14593802, z: -0.03350992, w: 0.96369094}
+  m_LastSceneViewRotation: {x: 0.1360521, y: 0.09437015, z: 0.0130209755, w: -0.9861189}
   m_LastSceneViewOrtho: 0
   m_ReplacementShader: {fileID: 0}
   m_ReplacementString: 
@@ -978,7 +978,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Temporary/Prefabs
+    - Assets/PolskiPolakPL/City Assets/Prefabs
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -986,17 +986,17 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Temporary/Prefabs
+  - Assets/PolskiPolakPL/City Assets/Prefabs
   m_LastFoldersGridSize: -1
   m_LastProjectPath: D:\Biblioteka\GameDev\Unity Projects\Studia\RTS Game\Unity-Game-Project\RTS
     Multiplayer
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 540}
-    m_SelectedIDs: b4bb0000
-    m_LastClickedID: 48052
-    m_ExpandedIDs: 00000000a6bb0000a8bb0000aabb0000acbb0000aebb0000b0bb0000b2bb0000b4bb0000b6bb0000b8bb0000babb0000bcbb0000bebb0000c0bb0000c2bb0000c4bb0000c6bb0000c8bb0000cabb0000ccbb0000cebb0000d0bb0000d2bb00001abc0000
+    scrollPos: {x: 0, y: 140}
+    m_SelectedIDs: 82670100
+    m_LastClickedID: 92034
+    m_ExpandedIDs: 00000000f8660100fa660100fc660100fe66010000670100026701000467010006670100086701000a6701000c6701000e67010010670100126701001467010016670100186701001a6701001c6701001e6701002067010022670100246701006a670100
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1024,7 +1024,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000a6bb0000a8bb0000aabb0000acbb0000aebb0000b0bb0000b2bb0000b4bb0000b6bb0000b8bb0000babb0000bcbb0000bebb0000c0bb0000c2bb0000c4bb0000c6bb0000c8bb0000cabb0000ccbb0000cebb0000d0bb0000d2bb0000
+    m_ExpandedIDs: 00000000f8660100fa660100fc660100fe66010000670100026701000467010006670100086701000a6701000c6701000e67010010670100126701001467010016670100186701001a6701001c6701001e670100206701002267010024670100
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 

@@ -13,6 +13,7 @@ public class CameraScript : MonoBehaviour
     [SerializeField] float movementTime = 5;
     [SerializeField] bool freezeOnRotation = false;
     [Header("Camera Border")]
+    [SerializeField] bool restrictCamera = false;
     [SerializeField] Vector3 minBounds;
     [SerializeField] Vector3 maxBounds;
     [Header("Camera Zoom")]
@@ -109,8 +110,8 @@ public class CameraScript : MonoBehaviour
         }
 
         HandleMouseInput(multiplayedSpeed);
-
-        RestrictCameraMovement();
+        if(restrictCamera)
+            RestrictCameraMovement();
         
         transform.position = Vector3.Lerp(transform.position, newPosition, Time.deltaTime * movementTime);
     }

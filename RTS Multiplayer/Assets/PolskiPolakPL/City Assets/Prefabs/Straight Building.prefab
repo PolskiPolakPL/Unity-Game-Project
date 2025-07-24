@@ -3729,7 +3729,7 @@ GameObject:
   - component: {fileID: 1787990519178235883}
   - component: {fileID: 2871491490547667554}
   - component: {fileID: 7228538252963359624}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Roof.005
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5569,7 +5569,7 @@ GameObject:
   - component: {fileID: 6670402069947883302}
   - component: {fileID: 3660616501869656408}
   - component: {fileID: 16790828107446053}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Walls.005
   m_TagString: Untagged
   m_Icon: {fileID: 0}
