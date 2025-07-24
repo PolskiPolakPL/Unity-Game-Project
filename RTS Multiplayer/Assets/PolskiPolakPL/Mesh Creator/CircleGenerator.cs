@@ -16,7 +16,7 @@ public class CircleGenerator : MonoBehaviour
     int[] triangles;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         mesh = new Mesh();
         mesh.name = "Circular Mesh";
