@@ -2752,11 +2752,11 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 3fbf80543e7c68248b334dc075568937, type: 2}
     - target: {fileID: 8576132964516400257, guid: 8db7f47002e3f634794b0e7dbd2a41c0, type: 3}
       propertyPath: Rradious
-      value: 0.4
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8576132964516400257, guid: 8db7f47002e3f634794b0e7dbd2a41c0, type: 3}
       propertyPath: RingThickness
-      value: 0.08
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 8641651201171628385, guid: 8db7f47002e3f634794b0e7dbd2a41c0, type: 3}
       propertyPath: m_Name
