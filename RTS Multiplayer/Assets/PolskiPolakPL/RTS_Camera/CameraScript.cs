@@ -73,7 +73,7 @@ public class CameraScript : MonoBehaviour
 
         if (Input.GetMouseButtonUp(2))
         {
-            Cursor.lockState = CursorLockMode.Confined;
+            Cursor.lockState = CursorLockMode.None;
         }
 
         // changing distance (zoom)
