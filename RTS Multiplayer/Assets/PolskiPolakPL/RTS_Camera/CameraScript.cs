@@ -12,11 +12,15 @@ public class CameraScript : MonoBehaviour
     [SerializeField] float rotationSpeed = 2;
     [SerializeField] float movementTime = 5;
     [SerializeField] bool freezeOnRotation = false;
+    [Header("Camera Border")]
+    [SerializeField] bool restrictCamera = false;
+    [SerializeField] Vector3 minBounds;
+    [SerializeField] Vector3 maxBounds;
     [Header("Camera Zoom")]
     [SerializeField] float minZoomDistance = 3;
     [SerializeField] float maxZoomDistance = 20;
     [SerializeField] float zoomAmount = 5;
-    [Header("Camera Border")]
+    [Header("Screen Border")]
     [SerializeField] bool isBorderActive = false;
     [SerializeField] int left = 1;
     [SerializeField] int right = 1;
@@ -69,7 +73,7 @@ public class CameraScript : MonoBehaviour
 
         if (Input.GetMouseButtonUp(2))
         {
-            Cursor.lockState = CursorLockMode.Confined;
+            Cursor.lockState = CursorLockMode.None;
         }
 
         // changing distance (zoom)
@@ -95,7 +99,6 @@ public class CameraScript : MonoBehaviour
 
     private void MoveCamera()
     {
-        Vector3 mousePosition = Input.mousePosition;
         float multiplayedSpeed;
         if (Input.GetKey(KeyCode.LeftShift))
         {
@@ -106,6 +109,17 @@ public class CameraScript : MonoBehaviour
             multiplayedSpeed = movementSpeed;
         }
 
+        HandleMouseInput(multiplayedSpeed);
+        if(restrictCamera)
+            RestrictCameraMovement();
+        
+        transform.position = Vector3.Lerp(transform.position, newPosition, Time.deltaTime * movementTime);
+    }
+
+    void HandleMouseInput(float multiplayedSpeed)
+    {
+
+        Vector3 mousePosition = Input.mousePosition;
         if ((mousePosition.y >= Screen.height - top && isBorderActive) || Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)) // up edge detected
         {
             newPosition += (transform.forward * multiplayedSpeed);
@@ -125,7 +139,11 @@ public class CameraScript : MonoBehaviour
         {
             newPosition += (transform.right * multiplayedSpeed);
         }
+    }
 
-        transform.position = Vector3.Lerp(transform.position, newPosition, Time.deltaTime * movementTime);
+    void RestrictCameraMovement()
+    {
+        newPosition.x = Mathf.Clamp(newPosition.x, minBounds.x, maxBounds.x);
+        newPosition.z = Mathf.Clamp(newPosition.z, minBounds.z, maxBounds.z);
     }
 }

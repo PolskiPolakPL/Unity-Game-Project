@@ -8,6 +8,7 @@ TagManager:
   - Facility
   - Objective
   - Ground
+  - PickableObject
   layers:
   - Default
   - TransparentFX
@@ -18,8 +19,8 @@ TagManager:
   - Hostile
   - Friendly
   - Neutral
-  - VisionBlocker
-  - Map
+  - Vision Obstruction
+  - Map Element
   - Minimap
   - 
   - 

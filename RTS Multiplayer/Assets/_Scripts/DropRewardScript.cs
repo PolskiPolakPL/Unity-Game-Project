@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(UnitScript))]
@@ -14,6 +12,7 @@ public class DropRewardScript : MonoBehaviour
     private void OnDestroy()
     {
         int reward = (int)Mathf.Round(unitScript.unit.cost * rewardMultiplier);
-        GameManager.Instance.playerScript.GainMoney(reward);
+        if(GameManager.Instance!=null)
+            GameManager.Instance.playerScript.GainMoney(reward);
     }
 }

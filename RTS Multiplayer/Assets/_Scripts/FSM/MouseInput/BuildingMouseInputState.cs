@@ -7,7 +7,8 @@ public class BuildingMouseInputState : MouseInputBaseState
     private BarracksScript _script;
     public override void EnterState(MouseInputStateManager mouseInput)
     {
-        UnitSelection.Instance.DeselectAll();
+        if(UnitSelection.Instance!=null)
+            UnitSelection.Instance.DeselectAll();
         mouseInput.UnitClick.enabled = false;
         mouseInput.UnitDrag.enabled = false;
         mouseInput.CameraScript.enabled = false;
